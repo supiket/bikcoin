@@ -1,7 +1,5 @@
-import logo from '../logo.svg'
-import '../App.css'
-import '../account.js'
-import '../contracts.js'
+import logo from '../logo.svg';
+import '../App.css';
 
 export default function QueryVerified() {
     return (
@@ -22,8 +20,4 @@ export default function QueryVerified() {
             </header>
         </div>
     );
-}
-
-function queryVerifiedInContract(address) {
-
 }
