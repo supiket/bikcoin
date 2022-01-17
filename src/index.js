@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from "react-router-dom";
-import { Mainnet, DAppProvider, Avalanche, TestBNB  } from '@usedapp/core'
+import {DAppProvider, TestBNB} from '@usedapp/core'
 const config = {
     readOnlyChainId: TestBNB.chainId,
     readOnlyUrls: {
