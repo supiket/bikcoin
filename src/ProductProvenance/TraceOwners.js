@@ -30,7 +30,7 @@ export default function TraceOwners() {
 
     if(query || (ownerCountByTokenId && ownerCount !== ownerCountByTokenId)){
         setQueried(true)
-        setOwnerCount(ownerCountByTokenId || false)
+        setOwnerCount(ownerCountByTokenId || 0)
         setQuery(false)
     }
     console.log(query, ownerCountByTokenId, )
