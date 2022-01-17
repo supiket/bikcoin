@@ -12,14 +12,16 @@ import ListItemText from '@mui/material/ListItemText';
 import MailIcon from '@mui/icons-material/Mail';
 import Toolbar from '@mui/material/Toolbar';
 import MenuIcon from '@mui/icons-material/Menu';
-import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
+import Collapse from '@mui/material/Collapse';
+import './App.css';
 
 const drawerWidth = 240;
 
 export default function Layout(props){
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
+    const [verificationContractOpen, setVerificationContractOpen] = React.useState(false);
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
@@ -30,15 +32,21 @@ export default function Layout(props){
             <Toolbar/>
             <Divider />
             <List>
-                {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemIcon>
-                            {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                        </ListItemIcon>
-                        <ListItemText primary={text} />
-                    </ListItem>
-                ))}
+                <ListItem button>
+                    <ListItemText primary={"Verification Contract"} />
+                </ListItem>
             </List>
+            {
+                verificationContractOpen &&
+                <React.Fragment>
+                    <Divider/>
+                    <List>
+                        <ListItem button>
+                            <ListItemText primary={"Verification Contract"} />
+                        </ListItem>
+                    </List>
+                </React.Fragment>
+            }
             <Divider />
             <List>
                 {['All mail', 'Trash', 'Spam'].map((text, index) => (
@@ -54,10 +62,14 @@ export default function Layout(props){
     );
 
     const container = window !== undefined ? () => window().document.body : undefined;
-
     return (
         <React.Fragment>
-
+            <div className="face">
+                <div className="eyes">
+                    <div className="eye"/>
+                    <div className="eye"/>
+                </div>
+            </div>
             <Toolbar>
                 <IconButton
                     color="inherit"
