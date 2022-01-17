@@ -4,11 +4,11 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from "react-router-dom";
-import { Mainnet, DAppProvider } from '@usedapp/core'
+import { Mainnet, DAppProvider, Avalanche, TestBNB  } from '@usedapp/core'
 const config = {
-    readOnlyChainId: Mainnet.chainId,
+    readOnlyChainId: TestBNB.chainId,
     readOnlyUrls: {
-        [Mainnet.chainId]: 'https://ropsten.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161',
+        [TestBNB.chainId]: 'https://data-seed-prebsc-1-s1.binance.org:8545/',
     },
 }
 document.querySelector("body").addEventListener("mousemove", eyeball);
@@ -27,7 +27,7 @@ function eyeball(event) {
 ReactDOM.render(
     <BrowserRouter>
         <React.StrictMode>
-            <DAppProvider>
+            <DAppProvider config={config}>
                 <App />
             </DAppProvider>
         </React.StrictMode>

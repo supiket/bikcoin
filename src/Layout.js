@@ -25,6 +25,7 @@ import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
 
 import './App.css';
 import {useEthers} from "@usedapp/core";
+import Button from "@mui/material/Button";
 
 const drawerWidth = 350;
 
@@ -183,9 +184,7 @@ export default function Layout(props){
             <Container maxWidth="md" style={{height:"100%", alignContent:"center"}}>
                 {
                     account? <Outlet/>:
-                        <div>
-                            <button onClick={() => activateBrowserWallet()}>Connect</button>
-                        </div>
+                        <Button variant="outlined" fullWidth onClick={() => activateBrowserWallet()}>Connect</Button>
                 }
             </Container>
         </React.Fragment>
