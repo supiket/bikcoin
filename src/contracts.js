@@ -1,10 +1,7 @@
-import { utils } from 'ethers'
-import { Contract } from '@ethersproject/contracts'
+export const verificationAddress = "0x048250B6F8ea5eB0489676648426c44B031dDC8F";
+export const productProvenanceAddress = "0x8C51b9E3D2c516CBF7fE87e634cF3837392C6FBa";
 
-var verificationAddress = "0x048250B6F8ea5eB0489676648426c44B031dDC8F";
-var productProvenanceAddress = "0x8C51b9E3D2c516CBF7fE87e634cF3837392C6FBa";
-
-verificationAbi = [
+export const verificationAbi = [
 	{
 		"inputs": [],
 		"stateMutability": "nonpayable",
@@ -44,7 +41,7 @@ verificationAbi = [
 	}
 ];
 
-productProvenanceAbi = [
+export const productProvenanceAbi = [
 	{
 		"inputs": [],
 		"stateMutability": "payable",
@@ -713,9 +710,3 @@ productProvenanceAbi = [
 		"type": "function"
 	}
 ];
-
-const verificationInterface = new utils.Interface(verificationAbi)
-const productProvenanceInterface = new utils.Interface(productProvenanceAbi)
-
-const verificationContract = new Contract(verificationAddress, verificationAbi)
-const productProvenanceContract = new Contract(productProvenanceAddress, productProvenanceAbi)
