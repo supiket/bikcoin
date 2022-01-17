@@ -4,8 +4,13 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from "react-router-dom";
-import { MetaMaskProvider } from "metamask-react";
-
+import { Mainnet, DAppProvider } from '@usedapp/core'
+const config = {
+    readOnlyChainId: Mainnet.chainId,
+    readOnlyUrls: {
+        [Mainnet.chainId]: 'https://ropsten.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161',
+    },
+}
 document.querySelector("body").addEventListener("mousemove", eyeball);
 
 function eyeball(event) {
@@ -22,9 +27,9 @@ function eyeball(event) {
 ReactDOM.render(
     <BrowserRouter>
         <React.StrictMode>
-            <MetaMaskProvider>
+            <DAppProvider>
                 <App />
-            </MetaMaskProvider>
+            </DAppProvider>
         </React.StrictMode>
     </BrowserRouter>,
   document.getElementById('root')

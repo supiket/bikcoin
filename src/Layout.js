@@ -24,7 +24,7 @@ import AssignmentTurnedInIcon from '@mui/icons-material/AssignmentTurnedIn';
 import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
 
 import './App.css';
-import {useMetaMask} from "metamask-react";
+import {useEthers} from "@usedapp/core";
 
 const drawerWidth = 350;
 
@@ -34,7 +34,7 @@ export default function Layout(props){
     const [mobileOpen, setMobileOpen] = React.useState(false);
     const [verificationContractOpen, setVerificationContractOpen] = React.useState(false);
     const [productProvenanceOpen, setProductProvenanceOpen] = React.useState(false);
-    const { status, connect, account } = useMetaMask();
+    const { activateBrowserWallet, account } = useEthers();
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
@@ -182,8 +182,10 @@ export default function Layout(props){
 
             <Container maxWidth="md" style={{height:"100%", alignContent:"center"}}>
                 {
-                    status === "connected"? <Outlet/>:
-                        <button onClick={connect}>Connect to MetaMask</button>
+                    account? <Outlet/>:
+                        <div>
+                            <button onClick={() => activateBrowserWallet()}>Connect</button>
+                        </div>
                 }
             </Container>
         </React.Fragment>
