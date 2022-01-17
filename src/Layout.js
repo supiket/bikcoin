@@ -128,13 +128,15 @@ export default function Layout(props){
     const container = window !== undefined ? () => window().document.body : undefined;
     return (
         <React.Fragment>
-            <div className="face">
-                <div className="eyes">
-                    <div className="eye"/>
-                    <div className="eye"/>
+            <div className="head">
+                <div className="face">
+                    <div className="eyes">
+                        <div className="eye"/>
+                        <div className="eye"/>
+                    </div>
                 </div>
             </div>
-            <Toolbar>
+            <Toolbar /*sx={{ display: { sm: 'none' } }}*/>
                 <IconButton
                     color="inherit"
                     aria-label="open drawer"
@@ -178,7 +180,7 @@ export default function Layout(props){
                 </Drawer>
             </Box>
 
-            <Container maxWidth="md" style={{}}>
+            <Container maxWidth="md" style={{height:"100%", alignContent:"center"}}>
                 {
                     status === "connected"? <Outlet/>:
                         <button onClick={connect}>Connect to MetaMask</button>

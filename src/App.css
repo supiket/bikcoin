@@ -4,20 +4,26 @@
   box-sizing: border-box
 }
 body{
+}
+.head{
+  position: fixed;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: #5d380022
+  background: #5d380022;
 }
 .face{
   position: fixed;
-  z-index: -1;
   width: 300px;
   height: 300px;
   border-radius: 50%;
   background: #ffcd0044;
   display: flex;
+  margin: auto;
   justify-content: center;
   align-items: center
 }
