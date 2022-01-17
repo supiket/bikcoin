@@ -22,7 +22,7 @@ import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
 import PolicyIcon from '@mui/icons-material/Policy';
 import AssignmentTurnedInIcon from '@mui/icons-material/AssignmentTurnedIn';
 import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
-
+import ExtensionIcon from '@mui/icons-material/Extension';
 import './App.css';
 import {useEthers} from "@usedapp/core";
 import Button from "@mui/material/Button";
@@ -118,6 +118,14 @@ export default function Layout(props){
                                 <PolicyIcon/>
                             </ListItemIcon>
                             <ListItemText primary={"Trace"} />
+                        </ListItem>
+                    </List>
+                    <List>
+                        <ListItem button sx={{ pl: 8 }} onClick={_=>navigate("/list")}>
+                            <ListItemIcon>
+                                <ExtensionIcon/>
+                            </ListItemIcon>
+                            <ListItemText primary={"List Products"} />
                         </ListItem>
                     </List>
                 </React.Fragment>
