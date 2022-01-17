@@ -1,10 +1,5 @@
 import { utils } from 'ethers'
-import { Contract } from '@ethersproject/contracts'
-import { useContractFunction, useContractCall } from "@usedapp/core"
-
-import productProvenanceContract from '../contracts.js'
-import '../App.css';
-import logo from '../logo.svg'
+import {  useContractCall } from "@usedapp/core"
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";

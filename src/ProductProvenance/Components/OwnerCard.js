@@ -28,6 +28,7 @@ export default function OwnerCard(props){
     ) ?? [];
     useEffect(_=>{
         setUser({address})
+        setLoading(false)
     }, [address])
     return loading?(
         <Card sx={{ minWidth: 275,  marginTop: 15}}>
