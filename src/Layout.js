@@ -1,5 +1,5 @@
 import React from "react";
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, Link, useNavigate } from "react-router-dom";
 import Container from "@mui/material/Container";
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
@@ -14,14 +14,25 @@ import Toolbar from '@mui/material/Toolbar';
 import MenuIcon from '@mui/icons-material/Menu';
 import IconButton from '@mui/material/IconButton';
 import Collapse from '@mui/material/Collapse';
+import VerifiedIcon from '@mui/icons-material/Verified';
+import BookmarkAddedIcon from '@mui/icons-material/BookmarkAdded';
+import GrassIcon from '@mui/icons-material/Grass';
+import TheaterComedyIcon from '@mui/icons-material/TheaterComedy';
+import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
+import PolicyIcon from '@mui/icons-material/Policy';
+import AssignmentTurnedInIcon from '@mui/icons-material/AssignmentTurnedIn';
+import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
+
 import './App.css';
 
-const drawerWidth = 240;
+const drawerWidth = 350;
 
 export default function Layout(props){
+    const navigate = useNavigate()
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
     const [verificationContractOpen, setVerificationContractOpen] = React.useState(false);
+    const [productProvenanceOpen, setProductProvenanceOpen] = React.useState(false);
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
@@ -32,32 +43,83 @@ export default function Layout(props){
             <Toolbar/>
             <Divider />
             <List>
-                <ListItem button>
+                <ListItem button onClick={_=>setVerificationContractOpen(!verificationContractOpen)}>
+                    <ListItemIcon>
+                        <AssignmentTurnedInIcon/>
+                    </ListItemIcon>
                     <ListItemText primary={"Verification Contract"} />
                 </ListItem>
             </List>
-            {
-                verificationContractOpen &&
+            <Collapse in={verificationContractOpen}>
                 <React.Fragment>
                     <Divider/>
                     <List>
-                        <ListItem button>
-                            <ListItemText primary={"Verification Contract"} />
+                        <ListItem button sx={{ pl: 4 }} onClick={_=>navigate("/queryverified")}>
+                            <ListItemIcon>
+                                <VerifiedIcon/>
+                            </ListItemIcon>
+                            <ListItemText primary={"Query Verified"} />
+                        </ListItem>
+                    </List>
+                    <List>
+                        <ListItem button sx={{ pl: 4 }} onClick={_=>navigate("/verify")}>
+                            <ListItemIcon>
+                                <BookmarkAddedIcon/>
+                            </ListItemIcon>
+                            <ListItemText primary={"Verify"} />
+                        </ListItem>
+                    </List>
+                </React.Fragment>
+
+            </Collapse>
+            <Divider />
+            <List>
+                <ListItem button onClick={_=>setProductProvenanceOpen(!productProvenanceOpen)}>
+                    <ListItemIcon>
+                        <AssignmentIndIcon/>
+                    </ListItemIcon>
+                    <ListItemText primary={"Product Provenance Contract"} />
+                </ListItem>
+            </List>
+            {
+                productProvenanceOpen &&
+                <React.Fragment>
+                    <Divider/>
+                    <List>
+                        <ListItem button sx={{ pl: 4 }} onClick={_=>navigate("/mint")}>
+                            <ListItemIcon>
+                                <GrassIcon/>
+                            </ListItemIcon>
+                            <ListItemText primary={"Mint Product"} />
+                        </ListItem>
+                    </List>
+                    <List>
+                        <ListItem button sx={{ pl: 4 }} onClick={_=>navigate("/transfer")}>
+                            <ListItemIcon>
+                                <TheaterComedyIcon/>
+                            </ListItemIcon>
+                            <ListItemText primary={"Transfer"} />
+                        </ListItem>
+                    </List>
+                    <List>
+                        <ListItem button sx={{ pl: 4 }} onClick={_=>navigate("/confirm")}>
+                            <ListItemIcon>
+                                <ThumbUpAltIcon/>
+                            </ListItemIcon>
+                            <ListItemText primary={"Confirm OwnerShip"} />
+                        </ListItem>
+                    </List>
+                    <List>
+                        <ListItem button sx={{ pl: 4 }} onClick={_=>navigate("/trace")}>
+                            <ListItemIcon>
+                                <PolicyIcon/>
+                            </ListItemIcon>
+                            <ListItemText primary={"Trace"} />
                         </ListItem>
                     </List>
                 </React.Fragment>
             }
-            <Divider />
-            <List>
-                {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemIcon>
-                            {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                        </ListItemIcon>
-                        <ListItemText primary={text} />
-                    </ListItem>
-                ))}
-            </List>
+
         </div>
     );
 
@@ -113,7 +175,7 @@ export default function Layout(props){
                     {drawer}
                 </Drawer>
             </Box>
-            <Container maxWidth="md">
+            <Container maxWidth="md" style={{}}>
                 <Outlet/>
             </Container>
         </React.Fragment>

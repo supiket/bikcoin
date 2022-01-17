@@ -8,7 +8,6 @@ import { BrowserRouter } from "react-router-dom";
 document.querySelector("body").addEventListener("mousemove", eyeball);
 
 function eyeball(event) {
-    'use strict';
     var eye = document.querySelectorAll(".eye");
     eye.forEach(function (eye) {
         let x = (eye.getBoundingClientRect().left) + (eye.clientWidth / 2)
