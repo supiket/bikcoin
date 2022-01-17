@@ -15,7 +15,6 @@ export default function QueryVerified() {
             </Typography>
             <TextField style={{marginBottom: 15}} fullWidth label="Address" value={address} onChange={e=>setAddress(e.target.value)}/>
             <Button  variant="outlined" fullWidth>Query</Button>
-
         </div>
     );
 }
