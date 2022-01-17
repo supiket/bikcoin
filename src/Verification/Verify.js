@@ -1,23 +1,30 @@
-import logo from '../logo.svg'
-import '../App.css'
+import { utils } from 'ethers'
+import { Contract } from '@ethersproject/contracts'
+import { useContractFunction } from "@usedapp/core"
+
+import '../App.css';
+import TextField from "@mui/material/TextField";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+import {useState} from "react";
+import {verificationAddress, verificationAbi} from "../contracts.js"
+
+const verificationInterface = new utils.Interface(verificationAbi)
+const verificationContract = new Contract(verificationAddress, verificationInterface)
 
 export default function Verify() {
+    const [address, setAddress] = useState("")
+    const { state, send } = useContractFunction(verificationContract, 'verify', {})
+    const [mostRecentState, setMostRecentState] = useState(state)
+    if(mostRecentState !== state){
+        setMostRecentState(state)
+    }
+    console.log(state, mostRecentState, )
     return (
-        <div className="App">
-            <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
-                <p>
-                    Edit <code>src/App.js</code> and save to reload.
-                </p>
-                <a
-                    className="App-link"
-                    href="https://reactjs.org"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Learn React
-                </a>
-            </header>
-        </div>
-    );
+        <div>
+            <Typography variant="h1" component="div" gutterBottom align={"center"}>
+                Verify Address At State
+            </Typography>
+            <TextField style={{marginBottom: 15}} fullWidth label="Address" value={address} onChange={e=>setAddress(e.target.value)}/>
+            <Button  variant="outlined" fullWidth onClick={_=>send(address)}>Verify</Button></div>);
 }

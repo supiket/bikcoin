@@ -1,9 +1,7 @@
 import { utils } from 'ethers'
-import { Contract } from '@ethersproject/contracts'
-import { useContractFunction, useContractCall } from "@usedapp/core"
+import { useContractCall } from "@usedapp/core"
 
 import '../App.css';
-import logo from '../logo.svg'
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
@@ -11,14 +9,13 @@ import {useState} from "react";
 import {verificationAddress, verificationAbi} from "../contracts.js"
 
 const verificationInterface = new utils.Interface(verificationAbi)
-const verificationContract = new Contract(verificationAddress, verificationInterface)
+
 export default function QueryVerified() {
     const [address, setAddress] = useState("")
     const [query, setQuery] = useState(false)
     const [queried, setQueried] = useState(false)
     const [verified, setVerified] = useState(false)
-    //const { state, send } = useContractFunction(verificationContract, "queryVerified", {});
-    const [tokenBalance] =
+    const [isVerified] =
         useContractCall({
                 abi: verificationInterface,
                 address: verificationAddress,
@@ -27,12 +24,12 @@ export default function QueryVerified() {
             }
         ) ?? [];
 
-    if(query || (tokenBalance && !verified)){
+    if(query || (isVerified && !verified)){
         setQueried(true)
-        setVerified(tokenBalance || false)
+        setVerified(isVerified || false)
         setQuery(false)
     }
-    console.log(query, tokenBalance, )
+    console.log(query, isVerified, )
     return (
         <div>
             <Typography variant="h3" component="div" gutterBottom align={"center"}>
