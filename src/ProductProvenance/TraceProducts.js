@@ -1,8 +1,9 @@
-import '../App.css';
 import logo from '../logo.svg'
 import '../App.css'
+import account from '../account.js'
+import productProvenanceContract from '../contracts.js'
 
-export default function QueryVerified() {
+export default function TraceProducts() {
     return (
         <div className="App">
             <header className="App-header">
@@ -23,7 +24,14 @@ export default function QueryVerified() {
     );
 }
 
-function queryVerified(queryAddress) {
-    verificationContract.methods.queryVerified(queryAddress).send({ from: account })
-    // returns true on success. we should handle failure and success with promise or async function
+function getLastTokenId() {
+    productProvenanceContract.methods.getLastTokenId().send({ from: account })
+}
+
+function getProductByTokenId(tokenId) {
+    productProvenanceContract.methods.getProductByTokenId(web3.utils.asciiToHex(tokenId)).send({ from: account })
+}
+
+function getProductBySerialNo(serialNo) {
+    productProvenanceContract.methods.getProductBySerialNo(web3.utils.asciiToHex(serialNo)).send({ from: account })
 }
