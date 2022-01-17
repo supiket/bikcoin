@@ -1,5 +1,15 @@
+import Web3 from 'web3'
+
+if (typeof web3 !== 'undefined') {
+	web3 = new Web3(web3.currentProvider);
+} 
+else {
+	web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+}
+
 var addressverification = "0x048250B6F8ea5eB0489676648426c44B031dDC8F";
 var addressproductprovenance = "0x8C51b9E3D2c516CBF7fE87e634cF3837392C6FBa";
+
 verificationabicontract = [
 	{
 		"inputs": [],
@@ -708,7 +718,6 @@ productprovenanceabicontract = [
 		"type": "function"
 	}
 ];
+
 verificationcontract = web3.eth.contract(verificationabicontract).at(addressverification);
 productprovenancecontract = web3.eth.contract(productprovenanceabicontract).at(addressproductprovenance);
-eth.defaultAccount=eth.accounts[1];
-personal.unlockAccount(eth.accounts[1], "55", 100);
