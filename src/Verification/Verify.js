@@ -1,7 +1,5 @@
 import logo from '../logo.svg'
 import '../App.css'
-import account from '../account.js'
-import verificationContract from '../contracts.js'
 
 export default function Verify() {
     return (
@@ -22,8 +20,4 @@ export default function Verify() {
             </header>
         </div>
     );
-}
-
-function verify(queryAddress) {
-    verificationContract.methods.verify(queryAddress).send({ from: account })
 }

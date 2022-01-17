@@ -1,7 +1,5 @@
 import logo from '../logo.svg'
 import '../App.css'
-import account from '../account.js'
-import productProvenanceContract from '../contracts.js'
 
 export default function TraceProducts() {
     return (
@@ -22,16 +20,4 @@ export default function TraceProducts() {
             </header>
         </div>
     );
-}
-
-function getLastTokenId() {
-    productProvenanceContract.methods.getLastTokenId().send({ from: account })
-}
-
-function getProductByTokenId(tokenId) {
-    productProvenanceContract.methods.getProductByTokenId(web3.utils.asciiToHex(tokenId)).send({ from: account })
-}
-
-function getProductBySerialNo(serialNo) {
-    productProvenanceContract.methods.getProductBySerialNo(web3.utils.asciiToHex(serialNo)).send({ from: account })
 }

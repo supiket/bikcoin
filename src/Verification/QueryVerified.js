@@ -46,9 +46,3 @@ export default function QueryVerified() {
             <TextField style={{marginBottom: 15}} fullWidth label="Address" value={address} onChange={e=>setAddress(e.target.value)||setQueried(false)}/>
             <Button  variant="outlined" fullWidth onClick={_=>setQuery(true)}>Query</Button></div>);
 }
-
-function queryVerified(send, queryAddress) {
-    console.log("sending to", queryAddress)
-    //send(queryAddress)
-    // returns true on success. we should handle failure and success with promise or async function
-}

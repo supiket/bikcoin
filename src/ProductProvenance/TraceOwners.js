@@ -45,36 +45,7 @@ export default function TraceOwners() {
                 }
             </Typography>
             <TextField style={{marginBottom: 15}} fullWidth label="Address" value={address} onChange={e=>setAddress(e.target.value)||setQueried(false)}/>
-            <Button  variant="outlined" fullWidth onClick={_=>setQuery(true)}>Query</Button></div>);}
-
-function getOwnerCountByTokenId(tokenId) {
-    productProvenanceContract.methods.getOwnerCountByTokenId(web3.utils.asciiToHex(tokenId)).send({ from: account })
-}
-
-function getOwnerCountBySerialNo(serialNo) {
-    productProvenanceContract.methods.getOwnerCountBySerialNo(web3.utils.asciiToHex(serialNo)).send({ from: account })
-}
-
-function getFirstOwnerByTokenId(tokenId) {
-    productProvenanceContract.methods.getFirstOwnerByTokenId(web3.utils.asciiToHex(tokenId)).send({ from: account })
-}
-
-function getFirstOwnerBySerialNo(serialNo) {
-    productProvenanceContract.methods.getFirstOwnerBySerialNo(web3.utils.asciiToHex(serialNo)).send({ from: account })
-}
-
-function getLastOwnerByTokenId(tokenId) {
-    productProvenanceContract.methods.getLastOwnerByTokenId(web3.utils.asciiToHex(tokenId)).send({ from: account })
-}
-
-function getLastOwnerBySerialNo(serialNo) {
-    productProvenanceContract.methods.getLastOwnerBySerialNo(web3.utils.asciiToHex(serialNo)).send({ from: account })
-}
-
-function getOwnerByTokenIdAndOwnerIndex(tokenId, ownerIndex) {
-    productProvenanceContract.methods.getOwnerByTokenIdAndOwnerIndex(web3.utils.asciiToHex(tokenId), web3.utils.asciiToHex(ownerIndex)).send({ from: account })
-}
-
-function getOwnerBySerialNoAndOwnerIndex(serialNo, ownerIndex) {
-    productProvenanceContract.methods.getOwnerBySerialNoAndOwnerIndex(web3.utils.asciiToHex(serialNo), web3.utils.asciiToHex(ownerIndex)).send({ from: account })
+            <Button  variant="outlined" fullWidth onClick={_=>setQuery(true)}>Query</Button>
+        </div>
+    );
 }
