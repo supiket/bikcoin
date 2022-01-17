@@ -46,7 +46,7 @@ export default function TraceOwners() {
                     `Token with ID ${tokenId} does not exist.`)
                 }
             </Typography>
-            <TextField style={{marginBottom: 15}} fullWidth label="Address" value={tokenId} onChange={e=>setTokenId(e.target.value)||setQueried(false)}/>
+            <TextField style={{marginBottom: 15}} fullWidth label="Token Id" value={tokenId} onChange={e=>setTokenId(e.target.value)||setQueried(false)}/>
             <Button  variant="outlined" fullWidth onClick={_=>setQuery(true)}>Query</Button>
             {queried&&
                 Array(ownerCount&&ownerCount._isBigNumber ?ownerCount.toNumber():0).map(ownerId=><OwnerCard key={ownerId} ownerId={ownerId} tokenId={tokenId}/>)
