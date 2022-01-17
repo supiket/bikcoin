@@ -1,6 +1,6 @@
 import { utils } from 'ethers'
 import { Contract } from '@ethersproject/contracts'
-import { useContractFunction } from "@usedapp/core"
+import { useContractFunction, useContractCall } from "@usedapp/core"
 
 import '../App.css';
 import logo from '../logo.svg'
@@ -10,23 +10,53 @@ import Button from "@mui/material/Button";
 import {useState} from "react";
 import {verificationAddress, verificationAbi} from "../contracts.js"
 
+const verificationInterface = new utils.Interface(verificationAbi)
+const verificationContract = new Contract(verificationAddress, verificationInterface)
 export default function QueryVerified() {
     const [address, setAddress] = useState("")
-    const verificationInterface = new utils.Interface(verificationAbi)
-    const verificationContract = new Contract(verificationAddress, verificationAbi)
-//    const { state, send } = useContractFunction(verificationContract, "queryVerified", {});
+    const [query, setQuery] = useState(false)
+    const [queried, setQueried] = useState(false)
+    const [verified, setVerified] = useState(false)
+    //const { state, send } = useContractFunction(verificationContract, "queryVerified", {});
+    const [tokenBalance] =
+        useContractCall({
+                abi: verificationInterface, // ABI interface of the called contract
+                address: verificationAddress, // On-chain address of the deployed contract
+                method: "queryVerified", // Method to be called
+                args: [address], // Method arguments - address to be checked for balance
+            }
+        ) ??[];
+    if(query || (tokenBalance && !verified)){
+        setQueried(true)
+        setVerified(tokenBalance || false)
+        setQuery(false)
+    }
+    console.log(query, tokenBalance, )
     return (
         <div>
             <Typography variant="h1" component="div" gutterBottom align={"center"}>
                 Query Verified
             </Typography>
-            <TextField style={{marginBottom: 15}} fullWidth label="Address" value={address} onChange={e=>setAddress(e.target.value)}/>
-            <Button  variant="outlined" fullWidth>Query</Button>
-        </div>
-    );
+            <Typography variant="body1" component="div" gutterBottom align={"center"}>
+                {(queried)&&
+                    (`The address ${address} is ${verified?"":"not "}verified.`)
+                }
+            </Typography>
+            <TextField style={{marginBottom: 15}} fullWidth label="Address" value={address} onChange={e=>setAddress(e.target.value)||setQueried(false)}/>
+            <Button  variant="outlined" fullWidth onClick={_=>setQuery(true)}>Query</Button></div>);
 }
 
 function queryVerified(send, queryAddress) {
-    send(queryAddress)
+    console.log("sending to", queryAddress)
+    /*const [tokenBalance] =
+    useContractCall({
+            abi: verificationInterface, // ABI interface of the called contract
+            address: verificationAddress, // On-chain address of the deployed contract
+            method: "queryVerified", // Method to be called
+            args: [queryAddress], // Method arguments - address to be checked for balance
+        }
+    ) ?? [];
+    return queryVerified()*/
+    //send(queryAddress)
     // returns true on success. we should handle failure and success with promise or async function
 }

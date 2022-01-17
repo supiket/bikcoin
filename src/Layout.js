@@ -57,7 +57,7 @@ export default function Layout(props){
                 <React.Fragment>
                     <Divider/>
                     <List>
-                        <ListItem button sx={{ pl: 4 }} onClick={_=>navigate("/queryverified")}>
+                        <ListItem button sx={{ pl: 8 }} onClick={_=>navigate("/queryverified")}>
                             <ListItemIcon>
                                 <VerifiedIcon/>
                             </ListItemIcon>
@@ -65,7 +65,7 @@ export default function Layout(props){
                         </ListItem>
                     </List>
                     <List>
-                        <ListItem button sx={{ pl: 4 }} onClick={_=>navigate("/verify")}>
+                        <ListItem button sx={{ pl: 8 }} onClick={_=>navigate("/verify")}>
                             <ListItemIcon>
                                 <BookmarkAddedIcon/>
                             </ListItemIcon>
@@ -89,7 +89,7 @@ export default function Layout(props){
                 <React.Fragment>
                     <Divider/>
                     <List>
-                        <ListItem button sx={{ pl: 4 }} onClick={_=>navigate("/mint")}>
+                        <ListItem button sx={{ pl: 8 }} onClick={_=>navigate("/mint")}>
                             <ListItemIcon>
                                 <GrassIcon/>
                             </ListItemIcon>
@@ -97,7 +97,7 @@ export default function Layout(props){
                         </ListItem>
                     </List>
                     <List>
-                        <ListItem button sx={{ pl: 4 }} onClick={_=>navigate("/transfer")}>
+                        <ListItem button sx={{ pl: 8 }} onClick={_=>navigate("/transfer")}>
                             <ListItemIcon>
                                 <TheaterComedyIcon/>
                             </ListItemIcon>
@@ -105,7 +105,7 @@ export default function Layout(props){
                         </ListItem>
                     </List>
                     <List>
-                        <ListItem button sx={{ pl: 4 }} onClick={_=>navigate("/confirm")}>
+                        <ListItem button sx={{ pl: 8 }} onClick={_=>navigate("/confirm")}>
                             <ListItemIcon>
                                 <ThumbUpAltIcon/>
                             </ListItemIcon>
@@ -113,7 +113,7 @@ export default function Layout(props){
                         </ListItem>
                     </List>
                     <List>
-                        <ListItem button sx={{ pl: 4 }} onClick={_=>navigate("/trace")}>
+                        <ListItem button sx={{ pl: 8 }} onClick={_=>navigate("/trace")}>
                             <ListItemIcon>
                                 <PolicyIcon/>
                             </ListItemIcon>

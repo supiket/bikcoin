@@ -11,6 +11,7 @@ const config = {
         [TestBNB.chainId]: 'https://data-seed-prebsc-1-s1.binance.org:8545/',
     },
 }
+console.log(TestBNB.chainId)
 document.querySelector("body").addEventListener("mousemove", eyeball);
 
 function eyeball(event) {
