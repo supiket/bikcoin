@@ -3,7 +3,7 @@ import '../App.css'
 import account from '../account.js'
 import verificationContract from '../contracts.js'
 
-export default function QueryVerified() {
+export default function Verify() {
     return (
         <div className="App">
             <header className="App-header">
@@ -24,7 +24,6 @@ export default function QueryVerified() {
     );
 }
 
-function queryVerified(queryAddress) {
-    verificationContract.methods.queryVerified(queryAddress).send({ from: account })
-    // returns true on success. we should handle failure and success with promise or async function
+function verify(queryAddress) {
+    verificationContract.methods.verify(queryAddress).send({ from: account })
 }

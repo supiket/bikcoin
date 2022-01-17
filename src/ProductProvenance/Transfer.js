@@ -1,9 +1,9 @@
 import logo from '../logo.svg'
 import '../App.css'
 import account from '../account.js'
-import verificationContract from '../contracts.js'
+import productProvenanceContract from '../contracts.js'
 
-export default function QueryVerified() {
+export default function Transfer() {
     return (
         <div className="App">
             <header className="App-header">
@@ -24,7 +24,6 @@ export default function QueryVerified() {
     );
 }
 
-function queryVerified(queryAddress) {
-    verificationContract.methods.queryVerified(queryAddress).send({ from: account })
-    // returns true on success. we should handle failure and success with promise or async function
+function transfer(to, tokenId) {
+    productProvenanceContract.methods.transferOwnership(web3.utils.asciiToHex(to), web3.utils.asciiToHex(tokenId)).send({ from: account })
 }
