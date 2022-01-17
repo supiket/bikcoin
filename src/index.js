@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from "react-router-dom";
+import { MetaMaskProvider } from "metamask-react";
 
 document.querySelector("body").addEventListener("mousemove", eyeball);
 
@@ -21,7 +22,9 @@ function eyeball(event) {
 ReactDOM.render(
     <BrowserRouter>
         <React.StrictMode>
-            <App />
+            <MetaMaskProvider>
+                <App />
+            </MetaMaskProvider>
         </React.StrictMode>
     </BrowserRouter>,
   document.getElementById('root')
