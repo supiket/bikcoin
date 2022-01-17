@@ -20,12 +20,13 @@ export default function QueryVerified() {
     //const { state, send } = useContractFunction(verificationContract, "queryVerified", {});
     const [tokenBalance] =
         useContractCall({
-                abi: verificationInterface, // ABI interface of the called contract
-                address: verificationAddress, // On-chain address of the deployed contract
-                method: "queryVerified", // Method to be called
-                args: [address], // Method arguments - address to be checked for balance
+                abi: verificationInterface,
+                address: verificationAddress,
+                method: "queryVerified", 
+                args: [address],
             }
-        ) ??[];
+        ) ?? [];
+
     if(query || (tokenBalance && !verified)){
         setQueried(true)
         setVerified(tokenBalance || false)
@@ -48,15 +49,6 @@ export default function QueryVerified() {
 
 function queryVerified(send, queryAddress) {
     console.log("sending to", queryAddress)
-    /*const [tokenBalance] =
-    useContractCall({
-            abi: verificationInterface, // ABI interface of the called contract
-            address: verificationAddress, // On-chain address of the deployed contract
-            method: "queryVerified", // Method to be called
-            args: [queryAddress], // Method arguments - address to be checked for balance
-        }
-    ) ?? [];
-    return queryVerified()*/
     //send(queryAddress)
     // returns true on success. we should handle failure and success with promise or async function
 }
