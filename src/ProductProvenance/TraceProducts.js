@@ -1,37 +1,50 @@
-import logo from '../logo.svg'
-import '../App.css'
-import account from '../account.js'
+import { utils } from 'ethers'
+import { Contract } from '@ethersproject/contracts'
+import { useContractFunction, useContractCall } from "@usedapp/core"
+
 import productProvenanceContract from '../contracts.js'
+import '../App.css';
+import logo from '../logo.svg'
+import TextField from "@mui/material/TextField";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+import {useState} from "react";
+import {productProvenanceAddress, productProvenanceAbi} from "../contracts.js"
+
+const productProvenanceInterface = new utils.Interface(productProvenanceAbi)
 
 export default function TraceProducts() {
+    const [address, setAddress] = useState("")
+    const [query, setQuery] = useState(false)
+    const [queried, setQueried] = useState(false)
+    const [lastTokenId, setLastTokenId] = useState(0)
+    const [lastTokenIdVal] =
+        useContractCall({
+                abi: productProvenanceInterface,
+                address: productProvenanceAddress,
+                method: "getOwnerCountByTokenId", 
+                args: [],
+            }
+        ) ?? [];
+
+    if(query || (lastTokenIdVal && lastTokenId !== lastTokenIdVal)){
+        setQueried(true)
+        setLastTokenId(lastTokenIdVal || 0)
+        setQuery(false)
+    }
+    console.log(query, lastTokenIdVal, )
     return (
-        <div className="App">
-            <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
-                <p>
-                    Edit <code>src/App.js</code> and save to reload.
-                </p>
-                <a
-                    className="App-link"
-                    href="https://reactjs.org"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Learn React
-                </a>
-            </header>
+        <div>
+            <Typography variant="h1" component="div" gutterBottom align={"center"}>
+                Get Last Minted Token ID
+            </Typography>
+            <Typography variant="body1" component="div" gutterBottom align={"center"}>
+                {(queried)&&
+                    (`The ID of the last minted token is ${lastTokenId}.`)
+                }
+            </Typography>
+            <TextField style={{marginBottom: 15}} fullWidth label="Address" value={address} onChange={e=>setAddress(e.target.value)||setQueried(false)}/>
+            <Button  variant="outlined" fullWidth onClick={_=>setQuery(true)}>Query</Button>
         </div>
     );
-}
-
-function getLastTokenId() {
-    productProvenanceContract.methods.getLastTokenId().send({ from: account })
-}
-
-function getProductByTokenId(tokenId) {
-    productProvenanceContract.methods.getProductByTokenId(web3.utils.asciiToHex(tokenId)).send({ from: account })
-}
-
-function getProductBySerialNo(serialNo) {
-    productProvenanceContract.methods.getProductBySerialNo(web3.utils.asciiToHex(serialNo)).send({ from: account })
 }

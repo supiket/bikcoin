@@ -1,7 +1,5 @@
 import logo from '../logo.svg'
 import '../App.css'
-import account from '../account.js'
-import productProvenanceContract from '../contracts.js'
 
 export default function Transfer() {
     return (
@@ -22,8 +20,4 @@ export default function Transfer() {
             </header>
         </div>
     );
-}
-
-function transfer(to, tokenId) {
-    productProvenanceContract.methods.transferOwnership(web3.utils.asciiToHex(to), web3.utils.asciiToHex(tokenId)).send({ from: account })
 }

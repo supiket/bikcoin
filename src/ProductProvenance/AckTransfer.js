@@ -1,7 +1,5 @@
 import logo from '../logo.svg'
 import '../App.css'
-import account from '../account.js'
-import productProvenanceContract from '../contracts.js'
 
 export default function AckTransfer() {
     return (
@@ -22,8 +20,4 @@ export default function AckTransfer() {
             </header>
         </div>
     );
-}
-
-function transfer(tokenId) {
-    productProvenanceContract.methods.acknowledgeOwnership(web3.utils.asciiToHex(tokenId)).send({ from: account })
 }

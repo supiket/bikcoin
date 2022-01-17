@@ -1,7 +1,5 @@
 import logo from '../logo.svg'
 import '../App.css'
-import account from '../account.js'
-import productProvenanceContract from '../contracts.js'
 
 export default function Mint() {
     return (
@@ -22,8 +20,4 @@ export default function Mint() {
             </header>
         </div>
     );
-}
-
-function mint(serialNo, zipCode) {
-    productProvenanceContract.methods.manufacture(web3.utils.asciiToHex(serialNo), web3.utils.asciiToHex(zipCode)).send({ from: account })
 }
