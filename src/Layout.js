@@ -109,7 +109,7 @@ export default function Layout(props){
                             <ListItemIcon>
                                 <ThumbUpAltIcon/>
                             </ListItemIcon>
-                            <ListItemText primary={"Confirm OwnerShip"} />
+                            <ListItemText primary={"Confirm Ownership"} />
                         </ListItem>
                     </List>
                     <List>

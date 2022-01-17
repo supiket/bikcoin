@@ -10,6 +10,7 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import {useState} from "react";
 import {productProvenanceAddress, productProvenanceAbi} from "../contracts.js"
+import OwnerCard from "./Components/OwnerCard";
 
 const productProvenanceInterface = new utils.Interface(productProvenanceAbi)
 
@@ -30,22 +31,26 @@ export default function TraceOwners() {
 
     if(query || (ownerCountByTokenId && ownerCount !== ownerCountByTokenId)){
         setQueried(true)
-        setOwnerCount(ownerCountByTokenId || 0)
+        setOwnerCount(ownerCountByTokenId)
         setQuery(false)
     }
-    console.log(query, ownerCountByTokenId, )
+    console.log(query, ownerCountByTokenId, Array(ownerCount&& ownerCount._isBigNumber ?ownerCount.toNumber():0))
     return (
         <div>
-            <Typography variant="h1" component="div" gutterBottom align={"center"}>
-                Get Owner Count By Token ID
+            <Typography variant="h2" component="div" gutterBottom align={"center"}>
+                Get Owners By Token ID
             </Typography>
             <Typography variant="body1" component="div" gutterBottom align={"center"}>
-                {(queried)&&
-                    (`The number of owners of token with ID ${tokenId} is ${ownerCount}.`)
+                {(queried)&&(ownerCount>0?
+                    (`Token with ID ${tokenId} has ${ownerCount} owners.`):
+                    `Token with ID ${tokenId} does not exist.`)
                 }
             </Typography>
-            <TextField style={{marginBottom: 15}} fullWidth label="Address" value={address} onChange={e=>setAddress(e.target.value)||setQueried(false)}/>
+            <TextField style={{marginBottom: 15}} fullWidth label="Address" value={tokenId} onChange={e=>setTokenId(e.target.value)||setQueried(false)}/>
             <Button  variant="outlined" fullWidth onClick={_=>setQuery(true)}>Query</Button>
+            {queried&&
+                Array(ownerCount&&ownerCount._isBigNumber ?ownerCount.toNumber():0).map(ownerId=><OwnerCard key={ownerId} ownerId={ownerId} tokenId={tokenId}/>)
+            }
         </div>
     );
 }
