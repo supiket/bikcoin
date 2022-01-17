@@ -1,16 +1,10 @@
-import Web3 from 'web3'
+import { utils } from 'ethers'
+import { Contract } from '@ethersproject/contracts'
 
-if (typeof web3 !== 'undefined') {
-	web3 = new Web3(web3.currentProvider);
-} 
-else {
-	web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
-}
+var verificationAddress = "0x048250B6F8ea5eB0489676648426c44B031dDC8F";
+var productProvenanceAddress = "0x8C51b9E3D2c516CBF7fE87e634cF3837392C6FBa";
 
-var addressverification = "0x048250B6F8ea5eB0489676648426c44B031dDC8F";
-var addressproductprovenance = "0x8C51b9E3D2c516CBF7fE87e634cF3837392C6FBa";
-
-verificationabicontract = [
+verificationAbi = [
 	{
 		"inputs": [],
 		"stateMutability": "nonpayable",
@@ -49,7 +43,8 @@ verificationabicontract = [
 		"type": "function"
 	}
 ];
-productprovenanceabicontract = [
+
+productProvenanceAbi = [
 	{
 		"inputs": [],
 		"stateMutability": "payable",
@@ -719,5 +714,8 @@ productprovenanceabicontract = [
 	}
 ];
 
-verificationcontract = web3.eth.contract(verificationabicontract).at(addressverification);
-productprovenancecontract = web3.eth.contract(productprovenanceabicontract).at(addressproductprovenance);
+const verificationInterface = new utils.Interface(verificationAbi)
+const productProvenanceInterface = new utils.Interface(productProvenanceAbi)
+
+const verificationContract = new Contract(verificationAddress, verificationAbi)
+const productProvenanceContract = new Contract(productProvenanceAddress, productProvenanceAbi)
