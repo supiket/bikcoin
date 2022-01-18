@@ -10,7 +10,6 @@ import Link from '@mui/material/Link';
 
 import {verificationAddress, productProvenanceAddress} from "./Contracts/contracts.js"
 import {useEthers} from "@usedapp/core";
-import {Outlet} from "react-router-dom";
 import Button from "@mui/material/Button";
 
 const gasFees = [
