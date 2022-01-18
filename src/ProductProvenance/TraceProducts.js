@@ -30,7 +30,7 @@ export default function TraceProducts() {
             </Typography>
             <Typography variant="body1" component="div" gutterBottom align={"center"}>
                 {
-                    (`There `) + (lastTokenId == 1 ? `is` : `are`) + (` ${lastTokenId} token`) + (lastTokenId == 1 ? `.` : `s.`)
+                    (`There `) + (lastTokenId === 1 ? `is` : `are`) + (` ${lastTokenId} token`) + (lastTokenId === 1 ? `.` : `s.`)
                 }
             </Typography>
             {
