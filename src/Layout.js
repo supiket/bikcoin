@@ -115,7 +115,7 @@ export default function Layout(props){
                                     <ListItemIcon>
                                         <PolicyIcon/>
                                     </ListItemIcon>
-                                    <ListItemText primary={"By Id"} />
+                                    <ListItemText primary={"By ID"} />
                                 </ListItem>
                                 <ListItem button sx={{ pl: 16 }} onClick={_=>navigate("/bikcoin/tracebyserial")}>
                                     <ListItemIcon>

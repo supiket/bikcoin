@@ -26,7 +26,7 @@ export default function Transfer() {
                 Transfer Ownership Of A Token
             </Typography>
             <Typography variant="body1" component="div" gutterBottom align={"center"}>
-                {state.status !== 'None' && `Transfer status: ${state.status}`}
+                {state.status !== 'None' && `Transfer status: ${state.status}` + (state.status==="Exception"?`. Details: ${state.errorMessage}`:"")}
             </Typography>
             <TextField style={{marginBottom: 15}} fullWidth label="Target Address" value={targetAddress} onChange={e=>setTargetAddress(e.target.value)}/>
             <TextField type="number" style={{marginBottom: 15}} fullWidth label="Token ID" value={tokenId} onChange={e=>setTokenId(e.target.value)}/>
