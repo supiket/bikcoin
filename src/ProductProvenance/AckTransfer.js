@@ -24,7 +24,10 @@ export default function AckTransfer() {
                 Confirm Transfer Of Ownership Of Token
             </Typography>
             <Typography variant="body1" component="div" gutterBottom align={"center"}>
-                {state.status !== 'None' && `Acknowledgement status: ${state.status}` + (state.status==="Exception"?`. Details: ${state.errorMessage}`:"")}
+                {state.status !== 'None' && `Acknowledgement status: ${state.status}`}
+            </Typography>
+            <Typography color="red" variant="body1" component="div" gutterBottom align={"center"}>
+                {state.status==="Exception"?`. Details: ${state.errorMessage}`:""}
             </Typography>
             <TextField type="number" style={{marginBottom: 15}} fullWidth label="Token ID" value={tokenId} onChange={e=>setTokenId(e.target.value)}/>
             <Button variant="contained" fullWidth onClick={_=>send(BigNumber.from(tokenId))}>Ack</Button></div>

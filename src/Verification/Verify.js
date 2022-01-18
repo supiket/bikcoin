@@ -24,7 +24,10 @@ export default function Verify() {
                 Verify Address At State
             </Typography>
             <Typography variant="body1" component="div" gutterBottom align={"center"}>
-                {state.status !== 'None' && `Verification status: ${state.status}` + (state.status==="Exception"?`. Details: ${state.errorMessage}`:"")}
+                {state.status !== 'None' && `Verification status: ${state.status}`}
+            </Typography>
+            <Typography color="red" variant="body1" component="div" gutterBottom align={"center"}>
+                {state.status==="Exception"?`. Details: ${state.errorMessage}`:""}
             </Typography>
             <TextField style={{marginBottom: 15}} fullWidth label="Address" value={address} onChange={e=>setAddress(e.target.value)}/>
             <Button variant="contained" fullWidth onClick={_=>send(address)}>Verify</Button></div>
