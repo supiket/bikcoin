@@ -26,6 +26,10 @@ import './App.css';
 import {useEthers} from "@usedapp/core";
 import Button from "@mui/material/Button";
 
+/*
+* Main layout and navigation are defined here
+* */
+
 const drawerWidth = 350;
 
 export default function Layout(props){

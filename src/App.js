@@ -10,7 +10,9 @@ import AckTransfer from "./ProductProvenance/AckTransfer";
 import TraceOwners from "./ProductProvenance/TraceOwners";
 import TraceProducts from "./ProductProvenance/TraceProducts";
 import TraceOwnersBySerial from "./ProductProvenance/TraceOwnersBySerial";
-
+/*
+* Routes are defined here
+* */
 function App() {
   return (
       <React.Fragment>

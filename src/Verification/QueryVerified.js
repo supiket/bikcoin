@@ -9,12 +9,16 @@ import {verificationAddress, verificationAbi} from "../Contracts/contracts.js"
 
 const verificationInterface = new utils.Interface(verificationAbi)
 
+/*
+* This function allows user to query if an address is verified.
+* */
+
 export default function QueryVerified() {
     const [address, setAddress] = useState("")
     const [query, setQuery] = useState(false)
     const [queried, setQueried] = useState(false)
     const [verified, setVerified] = useState(false)
-    const [isVerified] =
+    const [isVerified] = // Makes a contract call using abi interface and verification address of the verification contract and shows thte result
         useContractCall({
                 abi: verificationInterface,
                 address: verificationAddress,

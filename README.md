@@ -4,6 +4,15 @@ This repo is a web3 project that uses 2 smart contracts on the Binance Smart Cha
 It is served on [Github Pages](https://supiket.github.io/bikcoin). \
 In the demo you can verify an address on the blockchain or query if an address is verified using Verification Contract and you can mint, transfer and trace product NFTs using Product Provenance Contract.
 You can find a better explanation on the [Report.pdf file](https://github.com/supiket/bikcoin/blob/master/Report.pdf).
+
+# Explanation of Code
+| File                                | Explanation                              | 
+|-------------------------------------|------------------------------------------|
+| src/Contracts/ProductProvenance.sol | Solidity contract for Product Provenance |
+| src/Contracts/Verification.sol      | Solidity contract for Verification       |
+| src/Contracts/contracts.js          | javascript                               |
+
+
 # Running On Local
 In the project directory, you can run:
 
