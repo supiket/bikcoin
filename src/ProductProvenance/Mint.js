@@ -7,7 +7,6 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import {useState} from "react";
 import {productProvenanceAddress, productProvenanceAbi} from "../contracts.js"
-import { Uint256 } from 'soltypes'
 
 const productProvenanceInterface = new utils.Interface(productProvenanceAbi)
 const productProvenanceContract = new Contract(productProvenanceAddress, productProvenanceInterface)
@@ -31,6 +30,6 @@ export default function Mint() {
             </Typography>
             <TextField type="number" style={{marginBottom: 15}} fullWidth label="Serial No" value={serialNo} onChange={e=>setSerialNo(e.target.value)}/>
             <TextField type="number" style={{marginBottom: 15}} fullWidth label="Factory Zip Code" value={zipCode} onChange={e=>setZipCode(e.target.value)}/>
-            <Button variant="contained" fullWidth onClick={_=>send(Uint256.from(serialNo).toBytes().val, Uint256.from(zipCode).toBytes().val)}>Mint</Button></div>
+            <Button variant="contained" fullWidth onClick={_=>send(utils.formatBytes32String(serialNo), utils.formatBytes32String(zipCode))}>Mint</Button></div>
     );
 }

@@ -1,4 +1,4 @@
-import { utils } from 'ethers'
+import { BigNumber, utils } from 'ethers'
 import { Contract } from '@ethersproject/contracts'
 import { useContractFunction } from "@usedapp/core"
 
@@ -7,7 +7,6 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import {useState} from "react";
 import {productProvenanceAddress, productProvenanceAbi} from "../contracts.js"
-import { Uint256 } from 'soltypes'
 
 const productProvenanceInterface = new utils.Interface(productProvenanceAbi)
 const productProvenanceContract = new Contract(productProvenanceAddress, productProvenanceInterface)
@@ -31,6 +30,6 @@ export default function Transfer() {
             </Typography>
             <TextField style={{marginBottom: 15}} fullWidth label="Target Address" value={targetAddress} onChange={e=>setTargetAddress(e.target.value)}/>
             <TextField type="number" style={{marginBottom: 15}} fullWidth label="Token ID" value={tokenId} onChange={e=>setTokenId(e.target.value)}/>
-            <Button variant="contained" fullWidth onClick={_=>send(targetAddress, Uint256.from(tokenId).val)}>Send</Button></div>
+            <Button variant="contained" fullWidth onClick={_=>send(targetAddress, BigNumber.from(tokenId))}>Send</Button></div>
     );
 }
