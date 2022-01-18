@@ -206,7 +206,9 @@ export default function Layout(props){
             <Container maxWidth="md" style={{height:"100%", alignContent:"center"}}>
                 {
                     account || pathname==='/'? <Outlet/>:
-                            <Button variant="outlined" fullWidth onClick={() => activateBrowserWallet()}>Connect</Button>
+                        <center>
+                            <Button style={{marginTop:10, alignSelf:"center"}} variant="contained" onClick={() => activateBrowserWallet()}>Connect To Binance Smart Chain Testnet via Metamask</Button>
+                        </center>
                 }
             </Container>
         </React.Fragment>
