@@ -26,7 +26,7 @@ export default function Mint() {
                 Mint A Token Representing A Product
             </Typography>
             <Typography variant="body1" component="div" gutterBottom align={"center"}>
-                {state.status !== 'None' && `Minting status: ${state.status}`}
+                {state.status !== 'None' && `Minting status: ${state.status}` + (state.status==="Exception"?`. Details: ${state.errorMessage}`:"")}
             </Typography>
             <TextField type="number" style={{marginBottom: 15}} fullWidth label="Serial No" value={serialNo} onChange={e=>setSerialNo(e.target.value)}/>
             <TextField type="number" style={{marginBottom: 15}} fullWidth label="Factory Zip Code" value={zipCode} onChange={e=>setZipCode(e.target.value)}/>
