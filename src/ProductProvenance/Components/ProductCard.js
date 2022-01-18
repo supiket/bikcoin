@@ -8,6 +8,7 @@ import PersonIcon from '@mui/icons-material/Person';
 import {useContractCall} from "@usedapp/core";
 import {productProvenanceAbi, productProvenanceAddress} from "../../contracts";
 import {utils} from "ethers";
+import Typography from "@mui/material/Typography";
 
 
 const productProvenanceInterface = new utils.Interface(productProvenanceAbi)
@@ -38,14 +39,14 @@ export default function ProductCard(props){
         </Card>
     ):(
         <Card sx={{ marginTop:1 }}>
-            <CardHeader
-                avatar={
-                    <Avatar >
-                        <PersonIcon/>
-                    </Avatar>
-                }
-                title={"Serial No:" + user.serial + " , <br/>Factory Zip Code" + user.zipCode }
-            />
+            <CardContent>
+                <Typography variant={"body1"} color="text.primary">
+                    Serial No: {user.serial}
+                </Typography>
+                <Typography variant={"body1"} color="text.primary">
+                    Factory Zip Code: {user.zipCode}
+                </Typography>
+            </CardContent>
         </Card>
     )
 }
