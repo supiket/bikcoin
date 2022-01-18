@@ -46,7 +46,7 @@ export default function Layout(props){
             <Toolbar/>
             <Divider />
             <List>
-                <ListItem button onClick={_=>navigate("/bikcoin/")}>
+                <ListItem button onClick={_=>navigate("/")}>
                     <ListItemIcon>
                         <HomeIcon/>
                     </ListItemIcon>
@@ -63,13 +63,13 @@ export default function Layout(props){
                     <React.Fragment>
                         <Divider/>
                         <List>
-                            <ListItem button sx={{ pl: 8 }} onClick={_=>navigate("/bikcoin/queryverified")}>
+                            <ListItem button sx={{ pl: 8 }} onClick={_=>navigate("/queryverified")}>
                                 <ListItemIcon>
                                     <VerifiedIcon/>
                                 </ListItemIcon>
                                 <ListItemText primary={"Query Verified"} />
                             </ListItem>
-                            <ListItem button sx={{ pl: 8 }} onClick={_=>navigate("/bikcoin/verify")}>
+                            <ListItem button sx={{ pl: 8 }} onClick={_=>navigate("/verify")}>
                                 <ListItemIcon>
                                     <BookmarkAddedIcon/>
                                 </ListItemIcon>
@@ -90,19 +90,19 @@ export default function Layout(props){
                     <React.Fragment>
                         <Divider/>
                         <List>
-                            <ListItem button sx={{ pl: 8 }} onClick={_=>navigate("/bikcoin/mint")}>
+                            <ListItem button sx={{ pl: 8 }} onClick={_=>navigate("/mint")}>
                                 <ListItemIcon>
                                     <GrassIcon/>
                                 </ListItemIcon>
                                 <ListItemText primary={"Mint Product"} />
                             </ListItem>
-                            <ListItem button sx={{ pl: 8 }} onClick={_=>navigate("/bikcoin/transfer")}>
+                            <ListItem button sx={{ pl: 8 }} onClick={_=>navigate("/transfer")}>
                                 <ListItemIcon>
                                     <TheaterComedyIcon/>
                                 </ListItemIcon>
                                 <ListItemText primary={"Transfer"} />
                             </ListItem>
-                            <ListItem button sx={{ pl: 8 }} onClick={_=>navigate("/bikcoin/confirm")}>
+                            <ListItem button sx={{ pl: 8 }} onClick={_=>navigate("/confirm")}>
                                 <ListItemIcon>
                                     <ThumbUpAltIcon/>
                                 </ListItemIcon>
@@ -116,13 +116,13 @@ export default function Layout(props){
                             </ListItem>
                             <Collapse in={traceOpen}>
                                 <List>
-                                    <ListItem button sx={{ pl: 16 }} onClick={_=>navigate("/bikcoin/trace")}>
+                                    <ListItem button sx={{ pl: 16 }} onClick={_=>navigate("/trace")}>
                                         <ListItemIcon>
                                             <PolicyIcon/>
                                         </ListItemIcon>
                                         <ListItemText primary={"By ID"} />
                                     </ListItem>
-                                    <ListItem button sx={{ pl: 16 }} onClick={_=>navigate("/bikcoin/tracebyserial")}>
+                                    <ListItem button sx={{ pl: 16 }} onClick={_=>navigate("/tracebyserial")}>
                                         <ListItemIcon>
                                             <PolicyIcon/>
                                         </ListItemIcon>
@@ -130,7 +130,7 @@ export default function Layout(props){
                                     </ListItem>
                                 </List>
                             </Collapse>
-                            <ListItem button sx={{ pl: 8 }} onClick={_=>navigate("/bikcoin/list")}>
+                            <ListItem button sx={{ pl: 8 }} onClick={_=>navigate("/list")}>
                                 <ListItemIcon>
                                     <ExtensionIcon/>
                                 </ListItemIcon>
