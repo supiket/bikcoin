@@ -35,7 +35,7 @@ export default function TraceOwners() {
             </Typography>
             <Typography variant="body1" component="div" gutterBottom align={"center"}>
                 {(queried)&&(ownerCount>0?
-                    (`Token with ID ${tokenId} has ${ownerCount} owners.`):
+                    ((`Token with ID ${tokenId} has ${ownerCount} owner`) + ((ownerCount > 1) ? `s.` : `.`)):
                     `Token with ID ${tokenId} does not exist.`)
                 }
             </Typography>
