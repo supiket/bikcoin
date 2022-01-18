@@ -1,10 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import CardContent from "@mui/material/CardContent";
 import Card from "@mui/material/Card";
-import CardHeader from "@mui/material/CardHeader";
 import Skeleton from "@mui/material/Skeleton";
-import Avatar from "@mui/material/Avatar";
-import PersonIcon from '@mui/icons-material/Person';
 import {useContractCall} from "@usedapp/core";
 import {productProvenanceAbi, productProvenanceAddress} from "../../contracts";
 import {utils} from "ethers";
