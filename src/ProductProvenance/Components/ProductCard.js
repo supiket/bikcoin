@@ -14,22 +14,24 @@ import {utils} from "ethers";
 
 const productProvenanceInterface = new utils.Interface(productProvenanceAbi)
 
-export default function OwnerCard(props){
+export default function ProductCard(props){
     const [user, setUser] = useState({})
     const [loading, setLoading] = useState(true)
     const navigate = useNavigate()
-    const [address] =
+    const [serial, zipCode] =
     useContractCall({
             abi: productProvenanceInterface,
             address: productProvenanceAddress,
-            method: "getOwnerByTokenIdAndOwnerIndex",
-            args: [props.tokenId, props.ownerId],
+            method: "getProductByTokenId",
+            args: [props.tokenId],
         }
     ) ?? [];
+    console.log("saygılar")
     useEffect(_=>{
-        setUser({address})
+        console.log(serial, zipCode)
+        setUser({serial, zipCode})
         setLoading(false)
-    }, [address])
+    }, [serial, zipCode])
     return loading?(
         <Card sx={{ minWidth: 275,  marginTop: 15}}>
             <CardContent>
@@ -38,7 +40,7 @@ export default function OwnerCard(props){
             </CardContent>
         </Card>
     ):(
-        <Card sx={{ maxWidth: 345, marginTop:1 }}>
+        <Card sx={{ marginTop:1 }}>
             <ButtonBase
                 style={{
                     display: 'block',
@@ -52,7 +54,7 @@ export default function OwnerCard(props){
                             <PersonIcon/>
                         </Avatar>
                     }
-                    title={user.address +" " }
+                    title={"Serial No:" + user.serial + " , <br/>Factory Zip Code" + user.zipCode }
                 />
             </ButtonBase>
         </Card>
