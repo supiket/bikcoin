@@ -21,9 +21,7 @@ export default function ProductCard(props){
             args: [props.tokenId],
         }
     ) ?? [];
-    console.log("saygılar")
     useEffect(_=>{
-        console.log(serial, zipCode)
         setUser({serial, zipCode})
         setLoading(false)
     }, [serial, zipCode])
@@ -38,10 +36,10 @@ export default function ProductCard(props){
         <Card sx={{ marginTop:1 }}>
             <CardContent>
                 <Typography variant={"body1"} color="text.primary">
-                    Serial No: {user.serial}
+                    Serial No: {user.serial && utils.parseBytes32String(user.serial)}
                 </Typography>
                 <Typography variant={"body1"} color="text.primary">
-                    Factory Zip Code: {user.zipCode}
+                    Factory Zip Code: {user.serial && utils.parseBytes32String(user.zipCode)}
                 </Typography>
             </CardContent>
         </Card>

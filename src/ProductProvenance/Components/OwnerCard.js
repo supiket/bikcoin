@@ -24,7 +24,6 @@ export default function OwnerCard(props){
         }
     ) ?? [];
     useEffect(_=>{
-        console.log(address)
         setUser({address})
         setLoading(false)
     }, [address])

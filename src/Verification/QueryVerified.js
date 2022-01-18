@@ -28,7 +28,6 @@ export default function QueryVerified() {
         setVerified(isVerified || false)
         setQuery(false)
     }
-    console.log(query, isVerified, )
     return (
         <div>
             <Typography variant="h3" component="div" gutterBottom align={"center"}>
@@ -40,5 +39,5 @@ export default function QueryVerified() {
                 }
             </Typography>
             <TextField style={{marginBottom: 15}} fullWidth label="Address" value={address} onChange={e=>setAddress(e.target.value)||setQueried(false)}/>
-            <Button variant="outlined" fullWidth onClick={_=>setQuery(true)}>Query</Button></div>);
+            <Button variant="contained" fullWidth onClick={_=>setQuery(true)}>Query</Button></div>);
 }

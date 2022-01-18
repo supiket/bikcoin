@@ -1,5 +1,5 @@
 import { utils } from 'ethers'
-import {  useContractCall } from "@usedapp/core"
+import { useContractCall } from "@usedapp/core"
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
@@ -40,7 +40,7 @@ export default function TraceOwnersBySerial() {
                 }
             </Typography>
             <TextField style={{marginBottom: 15}} fullWidth label="Serial Number Hash" value={tokenId} onChange={e=>setTokenId(e.target.value)||setQueried(false)}/>
-            <Button  variant="outlined" fullWidth onClick={_=>setQuery(true)}>Query</Button>
+            <Button  variant="contained" fullWidth onClick={_=>setQuery(true)}>Query</Button>
             {queried&&
                 [...Array(ownerCount&&ownerCount._isBigNumber ?ownerCount.toNumber():0)].map((_, ownerId)=><OwnerCard key={ownerId} ownerId={ownerId} serial={utils.formatBytes32String(tokenId)}/>)
             }
