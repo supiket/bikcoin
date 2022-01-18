@@ -21,6 +21,12 @@ jobs:
       run: |
         git config --global user.email "bengisuozaydin@gmail.com"
         git config --global user.name "supiket"
-        npm run deploy
+        npm run predeploy
     - name: Updating Domain
       run: echo "Update domain"
+end
+
+name: deploy
+  # You may pin to the exact commit or the version.
+  # uses: crazy-max/ghaction-github-pages@a117e4aa1fb4854d021546d2abdfac95be568a3a
+  uses: crazy-max/ghaction-github-pages@v2.6.0
