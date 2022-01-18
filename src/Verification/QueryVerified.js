@@ -32,7 +32,7 @@ export default function QueryVerified() {
     console.log(query, isVerified, )
     return (
         <div>
-            <Typography variant="h1" component="div" gutterBottom align={"center"}>
+            <Typography variant="h3" component="div" gutterBottom align={"center"}>
                 Query Verified
             </Typography>
             <Typography variant="body1" component="div" gutterBottom align={"center"}>
