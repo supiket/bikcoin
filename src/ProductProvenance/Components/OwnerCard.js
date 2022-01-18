@@ -19,8 +19,8 @@ export default function OwnerCard(props){
     useContractCall({
             abi: productProvenanceInterface,
             address: productProvenanceAddress,
-            method: "getOwnerByTokenIdAndOwnerIndex",
-            args: [props.tokenId, props.ownerId],
+            method: props.tokenId?"getOwnerByTokenIdAndOwnerIndex": "getOwnerBySerialNoAndOwnerIndex",
+            args: [props.tokenId?props.tokenId:props.serial, props.ownerId],
         }
     ) ?? [];
     useEffect(_=>{
