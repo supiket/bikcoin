@@ -21,9 +21,7 @@ export default function ProductCard(props){
             args: [props.tokenId],
         }
     ) ?? [];
-    console.log("saygılar")
     useEffect(_=>{
-        console.log(serial, zipCode)
         setUser({serial, zipCode})
         setLoading(false)
     }, [serial, zipCode])

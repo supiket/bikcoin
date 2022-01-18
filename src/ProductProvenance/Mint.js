@@ -19,7 +19,6 @@ export default function Mint() {
     if(mostRecentState !== state){
         setMostRecentState(state)
     }
-    console.log(state, mostRecentState, )
     return (
         <div>
             <Typography variant="h2" component="div" gutterBottom align={"center"}>

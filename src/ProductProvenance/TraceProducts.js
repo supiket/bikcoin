@@ -21,9 +21,6 @@ export default function TraceProducts() {
     useEffect(_=>{
         setLastTokenId(lastTokenIdVal)
     }, [lastTokenIdVal])
-    console.log(
-        [...Array(lastTokenIdVal&&lastTokenIdVal._isBigNumber ?lastTokenIdVal.toNumber():0)]
-            .map((_,ownerId)=><ProductCard key={ownerId} tokenId={ownerId}/>))
     return lastTokenIdVal===undefined?(
         <CircularProgress/>
     ):(

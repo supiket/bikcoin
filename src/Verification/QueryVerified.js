@@ -28,7 +28,6 @@ export default function QueryVerified() {
         setVerified(isVerified || false)
         setQuery(false)
     }
-    console.log(query, isVerified, )
     return (
         <div>
             <Typography variant="h3" component="div" gutterBottom align={"center"}>
