@@ -1,5 +1,5 @@
 import { utils } from 'ethers'
-import {  useContractCall } from "@usedapp/core"
+import { useContractCall } from "@usedapp/core"
 import Typography from "@mui/material/Typography";
 import React, {useEffect, useState} from "react";
 import {productProvenanceAddress, productProvenanceAbi} from "../contracts.js"
