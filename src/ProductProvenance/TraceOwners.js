@@ -28,7 +28,6 @@ export default function TraceOwners() {
         setOwnerCount(ownerCountByTokenId)
         setQuery(false)
     }
-    console.log(query, ownerCountByTokenId, Array(ownerCount&& ownerCount._isBigNumber ?ownerCount.toNumber():0))
     return (
         <div>
             <Typography variant="h2" component="div" gutterBottom align={"center"}>
@@ -43,7 +42,7 @@ export default function TraceOwners() {
             <TextField style={{marginBottom: 15}} fullWidth label="Token Id" value={tokenId} onChange={e=>setTokenId(e.target.value)||setQueried(false)}/>
             <Button  variant="outlined" fullWidth onClick={_=>setQuery(true)}>Query</Button>
             {queried&&
-                Array(ownerCount&&ownerCount._isBigNumber ?ownerCount.toNumber():0).map(ownerId=><OwnerCard key={ownerId} ownerId={ownerId} tokenId={tokenId}/>)
+                [...Array(ownerCount&&ownerCount._isBigNumber ?ownerCount.toNumber():0)].map((_, ownerId)=><OwnerCard key={ownerId} ownerId={ownerId} tokenId={tokenId}/>)
             }
         </div>
     );
