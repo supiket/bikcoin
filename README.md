@@ -1,41 +1,13 @@
 # bikcoin
-About the fact that we need to buy Bitcoin
-
-Commands for the terminal:
-
-`geth --datadir test-chain-dir --http --dev --http.corsdomain "https://remix.ethereum.org,http://remix.ethereum.org"`
-
-`geth attach \\.\pipe\geth.ipc`
-
-## Available Scripts
-
+About the fact that we need to buy Bitcoin. 
+This repo is a web3 project that uses 2 smart contracts on the Binance Smart Chain Testnet. 
+It is served on [Github Pages](https://supiket.github.io/bikcoin). \
+In the demo you can verify an address on the blockchain or query if an address is verified using Verification Contract and you can mint, transfer and trace product NFTs using Product Provenance Contract.
+You can find a better explanation on the [Report.pdf file](https://github.com/supiket/bikcoin/blob/master/Report.pdf).
+# Running On Local
 In the project directory, you can run:
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Runs the app in the development mode. Open [http://localhost:3000/bikcoin](http://localhost:3000/bikcoin) to view it in your browser.
+The page will reload when you make changes. You may also see any lint errors in the console.
