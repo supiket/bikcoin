@@ -29,6 +29,6 @@ export default function AckTransfer() {
                 {state.status !== 'None' && `Acknowledgement status: ${state.status}`}
             </Typography>
             <TextField type="number" style={{marginBottom: 15}} fullWidth label="Token ID" value={tokenId} onChange={e=>setTokenId(e.target.value)}/>
-            <Button variant="contained" fullWidth onClick={_=>send(Uint256.from(tokenId).val)}>Send</Button></div>
+            <Button variant="contained" fullWidth onClick={_=>send(Uint256.from(tokenId).val)}>Ack</Button></div>
     );
 }
