@@ -21,6 +21,7 @@ export const ProgressBar = (props) => {
         return <LinearProgress variant="determinate" value={66} color={"info"}/>
     else if(props.mostRecentState.status === "Success")
         return <LinearProgress variant="Success" value={100} color={"success"}/>
+    return null
 }
 
 export default function Verify() {
