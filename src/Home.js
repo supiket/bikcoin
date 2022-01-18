@@ -9,6 +9,9 @@ import TableRow from '@mui/material/TableRow';
 import Link from '@mui/material/Link';
 
 import {verificationAddress, productProvenanceAddress} from "./Contracts/contracts.js"
+import {useEthers} from "@usedapp/core";
+import {Outlet} from "react-router-dom";
+import Button from "@mui/material/Button";
 
 const gasFees = [
     ["0.00174571BNB", "Deploy Contract"],
@@ -20,6 +23,8 @@ const gasFees = [
 ]
 
 export default function Home(){
+    const { activateBrowserWallet, account } = useEthers();
+
     return(
         <React.Fragment>
             <Typography variant="h1" component="div" gutterBottom align={"center"}>
@@ -37,6 +42,13 @@ export default function Home(){
             <Typography variant="body1" component="div" gutterBottom style={{marginTop:30}} align={"center"}>
                 Here you can interact with two smart contracts on Binance Smart Chain Testnet.
             </Typography>
+            <center>
+
+                {
+                    !account &&
+                    <Button style={{marginTop:10, alignSelf:"center"}} variant="contained" onClick={() => activateBrowserWallet()}>Connect To Binance Smart Chain Testnet via Metamask</Button>
+                }
+            </center>
             <Typography variant="body1" component="div" gutterBottom style={{marginTop:30}} align={"center"}>
                 The functions you can call and the associated gas fees are as follows:
             </Typography>
@@ -66,7 +78,7 @@ export default function Home(){
               </Table>
             </TableContainer>
             <Typography variant="h3" component="div" gutterBottom style={{marginTop:50}} align={"center"}>
-                Contract addresses
+                Smart Contract addresses
             </Typography>
             <TableContainer style={{marginBottom:100}}>
               <Table sx={{ minWidth: 650 }} aria-label="simple table">

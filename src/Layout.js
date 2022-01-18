@@ -1,5 +1,5 @@
 import React from "react";
-import { Outlet,  useNavigate } from "react-router-dom";
+import { Outlet,  useNavigate, useLocation } from "react-router-dom";
 import Container from "@mui/material/Container";
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
@@ -145,10 +145,9 @@ export default function Layout(props){
                 </Collapse>
                 <Divider/>
             </List>
-
         </div>
     );
-
+    let {pathname} = useLocation();
     const container = window !== undefined ? () => window().document.body : undefined;
     return (
         <React.Fragment>
@@ -206,8 +205,8 @@ export default function Layout(props){
 
             <Container maxWidth="md" style={{height:"100%", alignContent:"center"}}>
                 {
-                    account? <Outlet/>:
-                        <Button variant="outlined" fullWidth onClick={() => activateBrowserWallet()}>Connect</Button>
+                    account || pathname==='/'? <Outlet/>:
+                            <Button variant="outlined" fullWidth onClick={() => activateBrowserWallet()}>Connect</Button>
                 }
             </Container>
         </React.Fragment>
