@@ -21,7 +21,7 @@ jobs:
       run: |
         git config --global user.email "bengisuozaydin@gmail.com"
         git config --global user.name "supiket"
-        git remote set-url origin https://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@github.com/supiket/bikcoin.git
+        git remote set-url origin https://${{ secrets.GITHUB_TOKEN }}@github.com/supiket/bikcoin.git
         npm run deploy
     - name: Updating Domain
       run: echo "Update domain"
