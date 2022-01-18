@@ -8,6 +8,7 @@ import Transfer from "./ProductProvenance/Transfer";
 import AckTransfer from "./ProductProvenance/AckTransfer";
 import TraceOwners from "./ProductProvenance/TraceOwners";
 import TraceProducts from "./ProductProvenance/TraceProducts";
+import TraceOwnersBySerial from "./ProductProvenance/TraceOwnersBySerial";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
                 <Route path={"transfer"} element={<Transfer/>}/>
                 <Route path={"confirm"} element={<AckTransfer/>}/>
                 <Route path={"trace"} element={<TraceOwners/>}/>
+                <Route path={"tracebyserial"} element={<TraceOwnersBySerial/>}/>
                 <Route path={"list"} element={<TraceProducts/>}/>
                 <Route path="*" element={<QueryVerified/>}/>
             </Route>
