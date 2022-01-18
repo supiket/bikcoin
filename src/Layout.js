@@ -10,6 +10,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Toolbar from '@mui/material/Toolbar';
 import MenuIcon from '@mui/icons-material/Menu';
+import HomeIcon from '@mui/icons-material/Home';
 import IconButton from '@mui/material/IconButton';
 import Collapse from '@mui/material/Collapse';
 import VerifiedIcon from '@mui/icons-material/Verified';
@@ -45,95 +46,101 @@ export default function Layout(props){
             <Toolbar/>
             <Divider />
             <List>
+                <ListItem button onClick={_=>navigate("/bikcoin/")}>
+                    <ListItemIcon>
+                        <HomeIcon/>
+                    </ListItemIcon>
+                    <ListItemText primary={"Home Page"} />
+                </ListItem>
+                <Divider />
                 <ListItem button onClick={_=>setVerificationContractOpen(!verificationContractOpen)}>
                     <ListItemIcon>
                         <AssignmentTurnedInIcon/>
                     </ListItemIcon>
                     <ListItemText primary={"Verification Contract"} />
                 </ListItem>
-            </List>
-            <Collapse in={verificationContractOpen}>
-                <React.Fragment>
-                    <Divider/>
-                    <List>
-                        <ListItem button sx={{ pl: 8 }} onClick={_=>navigate("/bikcoin/queryverified")}>
-                            <ListItemIcon>
-                                <VerifiedIcon/>
-                            </ListItemIcon>
-                            <ListItemText primary={"Query Verified"} />
-                        </ListItem>
-                        <ListItem button sx={{ pl: 8 }} onClick={_=>navigate("/bikcoin/verify")}>
-                            <ListItemIcon>
-                                <BookmarkAddedIcon/>
-                            </ListItemIcon>
-                            <ListItemText primary={"Verify"} />
-                        </ListItem>
-                    </List>
-                </React.Fragment>
+                <Collapse in={verificationContractOpen}>
+                    <React.Fragment>
+                        <Divider/>
+                        <List>
+                            <ListItem button sx={{ pl: 8 }} onClick={_=>navigate("/bikcoin/queryverified")}>
+                                <ListItemIcon>
+                                    <VerifiedIcon/>
+                                </ListItemIcon>
+                                <ListItemText primary={"Query Verified"} />
+                            </ListItem>
+                            <ListItem button sx={{ pl: 8 }} onClick={_=>navigate("/bikcoin/verify")}>
+                                <ListItemIcon>
+                                    <BookmarkAddedIcon/>
+                                </ListItemIcon>
+                                <ListItemText primary={"Verify"} />
+                            </ListItem>
+                        </List>
+                    </React.Fragment>
 
-            </Collapse>
-            <Divider />
-            <List>
+                </Collapse>
+                <Divider />
                 <ListItem button onClick={_=>setProductProvenanceOpen(!productProvenanceOpen)||(productProvenanceOpen && setTraceOpen(false))}>
                     <ListItemIcon>
                         <AssignmentIndIcon/>
                     </ListItemIcon>
                     <ListItemText primary={"Product Provenance Contract"} />
                 </ListItem>
+                <Collapse in={productProvenanceOpen}>
+                    <React.Fragment>
+                        <Divider/>
+                        <List>
+                            <ListItem button sx={{ pl: 8 }} onClick={_=>navigate("/bikcoin/mint")}>
+                                <ListItemIcon>
+                                    <GrassIcon/>
+                                </ListItemIcon>
+                                <ListItemText primary={"Mint Product"} />
+                            </ListItem>
+                            <ListItem button sx={{ pl: 8 }} onClick={_=>navigate("/bikcoin/transfer")}>
+                                <ListItemIcon>
+                                    <TheaterComedyIcon/>
+                                </ListItemIcon>
+                                <ListItemText primary={"Transfer"} />
+                            </ListItem>
+                            <ListItem button sx={{ pl: 8 }} onClick={_=>navigate("/bikcoin/confirm")}>
+                                <ListItemIcon>
+                                    <ThumbUpAltIcon/>
+                                </ListItemIcon>
+                                <ListItemText primary={"Confirm Ownership"} />
+                            </ListItem>
+                            <ListItem button sx={{ pl: 8 }} onClick={_=>setTraceOpen(!traceOpen)}>
+                                <ListItemIcon>
+                                    <PolicyIcon/>
+                                </ListItemIcon>
+                                <ListItemText primary={"Trace"} />
+                            </ListItem>
+                            <Collapse in={traceOpen}>
+                                <List>
+                                    <ListItem button sx={{ pl: 16 }} onClick={_=>navigate("/bikcoin/trace")}>
+                                        <ListItemIcon>
+                                            <PolicyIcon/>
+                                        </ListItemIcon>
+                                        <ListItemText primary={"By ID"} />
+                                    </ListItem>
+                                    <ListItem button sx={{ pl: 16 }} onClick={_=>navigate("/bikcoin/tracebyserial")}>
+                                        <ListItemIcon>
+                                            <PolicyIcon/>
+                                        </ListItemIcon>
+                                        <ListItemText primary={"By Serial"} />
+                                    </ListItem>
+                                </List>
+                            </Collapse>
+                            <ListItem button sx={{ pl: 8 }} onClick={_=>navigate("/bikcoin/list")}>
+                                <ListItemIcon>
+                                    <ExtensionIcon/>
+                                </ListItemIcon>
+                                <ListItemText primary={"List Products"} />
+                            </ListItem>
+                        </List>
+                    </React.Fragment>
+                </Collapse>
+                <Divider/>
             </List>
-            <Collapse in={productProvenanceOpen}>
-                <React.Fragment>
-                    <Divider/>
-                    <List>
-                        <ListItem button sx={{ pl: 8 }} onClick={_=>navigate("/bikcoin/mint")}>
-                            <ListItemIcon>
-                                <GrassIcon/>
-                            </ListItemIcon>
-                            <ListItemText primary={"Mint Product"} />
-                        </ListItem>
-                        <ListItem button sx={{ pl: 8 }} onClick={_=>navigate("/bikcoin/transfer")}>
-                            <ListItemIcon>
-                                <TheaterComedyIcon/>
-                            </ListItemIcon>
-                            <ListItemText primary={"Transfer"} />
-                        </ListItem>
-                        <ListItem button sx={{ pl: 8 }} onClick={_=>navigate("/bikcoin/confirm")}>
-                            <ListItemIcon>
-                                <ThumbUpAltIcon/>
-                            </ListItemIcon>
-                            <ListItemText primary={"Confirm Ownership"} />
-                        </ListItem>
-                        <ListItem button sx={{ pl: 8 }} onClick={_=>setTraceOpen(!traceOpen)}>
-                            <ListItemIcon>
-                                <PolicyIcon/>
-                            </ListItemIcon>
-                            <ListItemText primary={"Trace"} />
-                        </ListItem>
-                        <Collapse in={traceOpen}>
-                            <List>
-                                <ListItem button sx={{ pl: 16 }} onClick={_=>navigate("/bikcoin/trace")}>
-                                    <ListItemIcon>
-                                        <PolicyIcon/>
-                                    </ListItemIcon>
-                                    <ListItemText primary={"By ID"} />
-                                </ListItem>
-                                <ListItem button sx={{ pl: 16 }} onClick={_=>navigate("/bikcoin/tracebyserial")}>
-                                    <ListItemIcon>
-                                        <PolicyIcon/>
-                                    </ListItemIcon>
-                                    <ListItemText primary={"By Serial"} />
-                                </ListItem>
-                            </List>
-                        </Collapse>
-                        <ListItem button sx={{ pl: 8 }} onClick={_=>navigate("/bikcoin/list")}>
-                            <ListItemIcon>
-                                <ExtensionIcon/>
-                            </ListItemIcon>
-                            <ListItemText primary={"List Products"} />
-                        </ListItem>
-                    </List>
-                </React.Fragment>
-            </Collapse>
 
         </div>
     );
