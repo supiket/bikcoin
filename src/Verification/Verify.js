@@ -22,9 +22,13 @@ export default function Verify() {
     console.log(state, mostRecentState, )
     return (
         <div>
-            <Typography variant="h1" component="div" gutterBottom align={"center"}>
+            <Typography variant="h2" component="div" gutterBottom align={"center"}>
                 Verify Address At State
             </Typography>
+            <Typography variant="body1" component="div" gutterBottom align={"center"}>
+                {state.status !== 'None' && `Verification status: ${state.status}`}
+            </Typography>
             <TextField style={{marginBottom: 15}} fullWidth label="Address" value={address} onChange={e=>setAddress(e.target.value)}/>
-            <Button  variant="outlined" fullWidth onClick={_=>send(address)}>Verify</Button></div>);
+            <Button variant="outlined" fullWidth onClick={_=>send(address)}>Verify</Button></div>
+    );
 }
