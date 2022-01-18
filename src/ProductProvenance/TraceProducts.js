@@ -26,7 +26,7 @@ export default function TraceProducts() {
     ):(
         <div>
             <Typography variant="h1" component="div" gutterBottom align={"center"}>
-                Get Last Minted Token ID
+                List All Tokens
             </Typography>
             <Typography variant="body1" component="div" gutterBottom align={"center"}>
                 {
