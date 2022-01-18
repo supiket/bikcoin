@@ -23,7 +23,7 @@ export default function AckTransfer() {
     return (
         <div>
             <Typography variant="h2" component="div" gutterBottom align={"center"}>
-                Transfer Ownership Of A Token
+                Confirm Transfer Of Ownership Of Token
             </Typography>
             <Typography variant="body1" component="div" gutterBottom align={"center"}>
                 {state.status !== 'None' && `Acknowledgement status: ${state.status}`}
