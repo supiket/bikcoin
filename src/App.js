@@ -15,8 +15,8 @@ function App() {
   return (
       <React.Fragment>
         <Routes>
-            <Route path={"/bikcoin"} element={<Layout/>}>
-                <Route index element={<Home/>}/>    
+            <Route path={""} element={<Layout/>}>
+                <Route index element={<Home/>}/>
                 <Route path={"queryverified"} element={<QueryVerified/>}/>
                 <Route path={"verify"} element={<Verify/>}/>
                 <Route path={"mint"} element={<Mint/>}/>
@@ -25,7 +25,7 @@ function App() {
                 <Route path={"trace"} element={<TraceOwners/>}/>
                 <Route path={"tracebyserial"} element={<TraceOwnersBySerial/>}/>
                 <Route path={"list"} element={<TraceProducts/>}/>
-                <Route path="*" element={<Home/>}/>
+                <Route path={"*"} element={<Home/>}/>
             </Route>
         </Routes>
 

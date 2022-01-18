@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 import {DAppProvider, TestBNB} from '@usedapp/core'
 const config = {
     readOnlyChainId: TestBNB.chainId,
@@ -26,13 +26,13 @@ function eyeball(event) {
 }
 
 ReactDOM.render(
-    <BrowserRouter>
+    <HashRouter>
         <React.StrictMode>
             <DAppProvider config={config}>
                 <App />
             </DAppProvider>
         </React.StrictMode>
-    </BrowserRouter>,
+    </HashRouter>,
   document.getElementById('root')
 );
 
