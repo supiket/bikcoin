@@ -18,6 +18,10 @@ jobs:
     - name: Install Packages
       run: npm install
     - name: Deploy to GH Pages
-      run: npm run deploy
+      run: |
+        git config --global user.email "bengisuozaydin@gmail.com"
+        git config --global user.name "supiket"
+        git remote set-url origin https://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@github.com/supiket/bikcoin.git
+        npm run deploy
     - name: Updating Domain
       run: echo "Update domain"
