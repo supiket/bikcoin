@@ -1,4 +1,4 @@
-import React from 'react'
+﻿import React from 'react'
 import Typography from "@mui/material/Typography";
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -6,6 +6,8 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
+import Link from '@mui/material/Link';
+
 import {verificationAddress, productProvenanceAddress} from "./contracts.js"
 
 const gasFees = [
@@ -21,12 +23,18 @@ export default function Home(){
     return(
         <React.Fragment>
             <Typography variant="h1" component="div" gutterBottom align={"center"}>
-                Home Page
+                Welcome!
             </Typography>
             <Typography variant="body1" component="div" gutterBottom align={"center"}>
-                Welcome to our CMPE483 Project.
+                We are Doğukan Akar and Bengisu Özaydın.
             </Typography>
             <Typography variant="body1" component="div" gutterBottom align={"center"}>
+                This is our project for CMPE483: Blockchain Programming.
+            </Typography>
+            <Typography variant="body1" component="div" gutterBottom align={"center"}>
+                Detailed information is available at <Link href="https://github.com/supiket/bikcoin">our GitHub Repo</Link>.
+            </Typography>
+            <Typography variant="body1" component="div" gutterBottom style={{marginTop:30}} align={"center"}>
                 Here you can interact with two smart contracts on Binance Smart Chain Testnet.
             </Typography>
             <Typography variant="body1" component="div" gutterBottom style={{marginTop:30}} align={"center"}>
