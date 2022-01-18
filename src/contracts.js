@@ -1,5 +1,5 @@
-export const verificationAddress = "0xf4A5D8f6cD4F21aDC88950cB12942febCB469C9E";
-export const productProvenanceAddress = "0xf4A5D8f6cD4F21aDC88950cB12942febCB469C9E";
+export const verificationAddress = "0xb21Cd6b020E1F5e4eBDaef6f924e725b1C56a2F5";
+export const productProvenanceAddress = "0xC29064a62371CC0f44f53e6AE700FB62bB5486d8";
 
 export const verificationAbi = [
 	{
