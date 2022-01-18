@@ -36,6 +36,9 @@ export default function ProductCard(props){
         <Card sx={{ marginTop:1 }}>
             <CardContent>
                 <Typography variant={"body1"} color="text.primary">
+                    Token ID: {user.serial && props.tokenId}
+                </Typography>
+                <Typography variant={"body1"} color="text.primary">
                     Serial No: {user.serial && utils.parseBytes32String(user.serial)}
                 </Typography>
                 <Typography variant={"body1"} color="text.primary">
