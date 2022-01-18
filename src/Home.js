@@ -6,6 +6,7 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
+import {verificationAddress, productProvenanceAddress} from "./contracts.js"
 
 const gasFees = [
     ["0.00174571BNB", "Deploy Contract"],
@@ -28,7 +29,7 @@ export default function Home(){
             <Typography variant="body1" component="div" gutterBottom align={"center"}>
                 Here you can interact with two smart contracts on Binance Smart Chain Testnet.
             </Typography>
-            <Typography variant="body1" component="div" gutterBottom align={"center"}>
+            <Typography variant="body1" component="div" gutterBottom style={{marginTop:30}} align={"center"}>
                 The functions you can call and the associated gas fees are as follows:
             </Typography>
             <TableContainer>
@@ -56,6 +57,24 @@ export default function Home(){
                 </TableBody>
               </Table>
             </TableContainer>
+            <Typography variant="h3" component="div" gutterBottom style={{marginTop:50}} align={"center"}>
+                Contract addresses
+            </Typography>
+            <TableContainer style={{marginBottom:100}}>
+              <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                <TableBody>
+                  <TableRow>
+                  <TableCell align="center">Verification Contract</TableCell>
+                  <TableCell align="center">{verificationAddress}</TableCell>
+                  </TableRow>
+                  <TableRow>
+                  <TableCell align="center">Product Provenance Contract</TableCell>
+                  <TableCell align="center">{productProvenanceAddress}</TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
+            </TableContainer>
+
         </React.Fragment>
     )
 }
