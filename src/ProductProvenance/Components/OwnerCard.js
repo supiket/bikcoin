@@ -6,7 +6,7 @@ import Skeleton from "@mui/material/Skeleton";
 import Avatar from "@mui/material/Avatar";
 import PersonIcon from '@mui/icons-material/Person';
 import {useContractCall} from "@usedapp/core";
-import {productProvenanceAbi, productProvenanceAddress} from "../../contracts";
+import {productProvenanceAbi, productProvenanceAddress} from "../../Contracts/contracts";
 import {utils} from "ethers";
 
 

@@ -2,7 +2,7 @@ import { utils } from 'ethers'
 import { useContractCall } from "@usedapp/core"
 import Typography from "@mui/material/Typography";
 import React, {useEffect, useState} from "react";
-import {productProvenanceAddress, productProvenanceAbi} from "../contracts.js"
+import {productProvenanceAddress, productProvenanceAbi} from "../Contracts/contracts.js"
 import ProductCard from "./Components/ProductCard";
 import {CircularProgress} from "@mui/material";
 

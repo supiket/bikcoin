@@ -8,7 +8,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Link from '@mui/material/Link';
 
-import {verificationAddress, productProvenanceAddress} from "./contracts.js"
+import {verificationAddress, productProvenanceAddress} from "./Contracts/contracts.js"
 
 const gasFees = [
     ["0.00174571BNB", "Deploy Contract"],

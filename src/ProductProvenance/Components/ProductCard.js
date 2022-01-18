@@ -3,7 +3,7 @@ import CardContent from "@mui/material/CardContent";
 import Card from "@mui/material/Card";
 import Skeleton from "@mui/material/Skeleton";
 import {useContractCall} from "@usedapp/core";
-import {productProvenanceAbi, productProvenanceAddress} from "../../contracts";
+import {productProvenanceAbi, productProvenanceAddress} from "../../Contracts/contracts";
 import {utils} from "ethers";
 import Typography from "@mui/material/Typography";
 

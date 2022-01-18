@@ -6,7 +6,7 @@ import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import {useState} from "react";
-import {productProvenanceAddress, productProvenanceAbi} from "../contracts.js"
+import {productProvenanceAddress, productProvenanceAbi} from "../Contracts/contracts.js"
 import {ProgressBar} from "../Verification/Verify";
 
 const productProvenanceInterface = new utils.Interface(productProvenanceAbi)

@@ -5,7 +5,7 @@ import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import {useState} from "react";
-import {verificationAddress, verificationAbi} from "../contracts.js"
+import {verificationAddress, verificationAbi} from "../Contracts/contracts.js"
 
 const verificationInterface = new utils.Interface(verificationAbi)
 
