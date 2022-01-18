@@ -9,6 +9,8 @@ jobs:
     strategy:
       matrix:
         node-version: [ 12.x]
+    env:
+      GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
     steps:
     - uses: actions/checkout@v1
     - name: Use Node.js ${{ matrix.node-version }}
