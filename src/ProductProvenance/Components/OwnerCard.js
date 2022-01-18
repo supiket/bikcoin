@@ -35,7 +35,7 @@ export default function OwnerCard(props){
             </CardContent>
         </Card>
     ):(
-        <Card sx={{ marginTop:1 }}>
+        <Card sx={{ marginTop:1, background: "#FFF6" }}>
             <CardHeader
                 avatar={
                     <Avatar >
