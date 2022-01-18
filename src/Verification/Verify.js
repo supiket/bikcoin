@@ -27,6 +27,6 @@ export default function Verify() {
                 {state.status !== 'None' && `Verification status: ${state.status}` + (state.status==="Exception"?`. Details: ${state.errorMessage}`:"")}
             </Typography>
             <TextField style={{marginBottom: 15}} fullWidth label="Address" value={address} onChange={e=>setAddress(e.target.value)}/>
-            <Button variant="outlined" fullWidth onClick={_=>send(address)}>Verify</Button></div>
+            <Button variant="contained" fullWidth onClick={_=>send(address)}>Verify</Button></div>
     );
 }

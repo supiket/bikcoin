@@ -40,7 +40,7 @@ export default function TraceOwners() {
                 }
             </Typography>
             <TextField style={{marginBottom: 15}} fullWidth label="Token Id" value={tokenId} onChange={e=>setTokenId(e.target.value)||setQueried(false)}/>
-            <Button  variant="outlined" fullWidth onClick={_=>setQuery(true)}>Query</Button>
+            <Button  variant="contained" fullWidth onClick={_=>setQuery(true)}>Query</Button>
             {queried&&
                 [...Array(ownerCount&&ownerCount._isBigNumber ?ownerCount.toNumber():0)].map((_, ownerId)=><OwnerCard key={ownerId} ownerId={ownerId} tokenId={tokenId}/>)
             }
