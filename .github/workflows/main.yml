@@ -24,3 +24,5 @@ jobs:
         npm run predeploy
     - name: Deploying
       uses: crazy-max/ghaction-github-pages@v2.6.0
+      with:
+        build_dir: build
