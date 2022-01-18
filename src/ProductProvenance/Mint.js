@@ -7,7 +7,7 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import {useState} from "react";
 import {productProvenanceAddress, productProvenanceAbi} from "../contracts.js"
-import { Bytes32, Uint256, Uint32, Address } from 'soltypes'
+import { Uint256 } from 'soltypes'
 
 const productProvenanceInterface = new utils.Interface(productProvenanceAbi)
 const productProvenanceContract = new Contract(productProvenanceAddress, productProvenanceInterface)
@@ -21,9 +21,6 @@ export default function Mint() {
         setMostRecentState(state)
     }
     console.log(state, mostRecentState, )
-    console.log(serialNo)
-    console.log(Uint256.from(serialNo))
-    console.log(Uint256.from(serialNo).toBytes())
     return (
         <div>
             <Typography variant="h2" component="div" gutterBottom align={"center"}>
