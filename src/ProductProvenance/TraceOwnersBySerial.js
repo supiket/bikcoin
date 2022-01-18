@@ -1,5 +1,5 @@
 import { utils } from 'ethers'
-import {  useContractCall } from "@usedapp/core"
+import { useContractCall } from "@usedapp/core"
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
