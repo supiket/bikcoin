@@ -30,7 +30,7 @@ import Button from "@mui/material/Button";
 * Main layout and navigation are defined here
 * */
 
-const drawerWidth = 350;
+const drawerWidth = 320;
 
 export default function Layout(props){
     const navigate = useNavigate()
@@ -165,7 +165,7 @@ export default function Layout(props){
                     aria-label="open drawer"
                     edge="start"
                     onClick={handleDrawerToggle}
-                    sx={{ mr: 2, display: { sm: 'none' } }}
+                    sx={{ mr: 2,  }}
                 >
                     <MenuIcon />
                 </IconButton>
@@ -185,22 +185,13 @@ export default function Layout(props){
                         keepMounted: true, // Better open performance on mobile.
                     }}
                     sx={{
-                        display: { xs: 'block', sm: 'none' },
+                        display: { xs: 'block',  },
                         '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
                     }}
                 >
                     {drawer}
                 </Drawer>
-                <Drawer
-                    variant="permanent"
-                    sx={{
-                        display: { xs: 'none', sm: 'block' },
-                        '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
-                    }}
-                    open
-                >
-                    {drawer}
-                </Drawer>
+
             </Box>
 
             <Container maxWidth="md" style={{height:"100%", alignContent:"center"}}>
