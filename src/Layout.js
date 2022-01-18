@@ -33,6 +33,7 @@ export default function Layout(props){
     const [mobileOpen, setMobileOpen] = React.useState(false);
     const [verificationContractOpen, setVerificationContractOpen] = React.useState(false);
     const [productProvenanceOpen, setProductProvenanceOpen] = React.useState(false);
+    const [traceOpen, setTraceOpen] = React.useState(false);
     const { activateBrowserWallet, account } = useEthers();
 
     const handleDrawerToggle = () => {
@@ -55,15 +56,13 @@ export default function Layout(props){
                 <React.Fragment>
                     <Divider/>
                     <List>
-                        <ListItem button sx={{ pl: 8 }} onClick={_=>navigate("/queryverified")}>
+                        <ListItem button sx={{ pl: 8 }} onClick={_=>navigate("/bikcoin/queryverified")}>
                             <ListItemIcon>
                                 <VerifiedIcon/>
                             </ListItemIcon>
                             <ListItemText primary={"Query Verified"} />
                         </ListItem>
-                    </List>
-                    <List>
-                        <ListItem button sx={{ pl: 8 }} onClick={_=>navigate("/verify")}>
+                        <ListItem button sx={{ pl: 8 }} onClick={_=>navigate("/bikcoin/verify")}>
                             <ListItemIcon>
                                 <BookmarkAddedIcon/>
                             </ListItemIcon>
@@ -75,51 +74,58 @@ export default function Layout(props){
             </Collapse>
             <Divider />
             <List>
-                <ListItem button onClick={_=>setProductProvenanceOpen(!productProvenanceOpen)}>
+                <ListItem button onClick={_=>setProductProvenanceOpen(!productProvenanceOpen)||(productProvenanceOpen && setTraceOpen(false))}>
                     <ListItemIcon>
                         <AssignmentIndIcon/>
                     </ListItemIcon>
                     <ListItemText primary={"Product Provenance Contract"} />
                 </ListItem>
             </List>
-            {
-                productProvenanceOpen &&
+            <Collapse in={productProvenanceOpen}>
                 <React.Fragment>
                     <Divider/>
                     <List>
-                        <ListItem button sx={{ pl: 8 }} onClick={_=>navigate("/mint")}>
+                        <ListItem button sx={{ pl: 8 }} onClick={_=>navigate("/bikcoin/mint")}>
                             <ListItemIcon>
                                 <GrassIcon/>
                             </ListItemIcon>
                             <ListItemText primary={"Mint Product"} />
                         </ListItem>
-                    </List>
-                    <List>
-                        <ListItem button sx={{ pl: 8 }} onClick={_=>navigate("/transfer")}>
+                        <ListItem button sx={{ pl: 8 }} onClick={_=>navigate("/bikcoin/transfer")}>
                             <ListItemIcon>
                                 <TheaterComedyIcon/>
                             </ListItemIcon>
                             <ListItemText primary={"Transfer"} />
                         </ListItem>
-                    </List>
-                    <List>
-                        <ListItem button sx={{ pl: 8 }} onClick={_=>navigate("/confirm")}>
+                        <ListItem button sx={{ pl: 8 }} onClick={_=>navigate("/bikcoin/confirm")}>
                             <ListItemIcon>
                                 <ThumbUpAltIcon/>
                             </ListItemIcon>
                             <ListItemText primary={"Confirm Ownership"} />
                         </ListItem>
-                    </List>
-                    <List>
-                        <ListItem button sx={{ pl: 8 }} onClick={_=>navigate("/trace")}>
+                        <ListItem button sx={{ pl: 8 }} onClick={_=>setTraceOpen(!traceOpen)}>
                             <ListItemIcon>
                                 <PolicyIcon/>
                             </ListItemIcon>
                             <ListItemText primary={"Trace"} />
                         </ListItem>
-                    </List>
-                    <List>
-                        <ListItem button sx={{ pl: 8 }} onClick={_=>navigate("/list")}>
+                        <Collapse in={traceOpen}>
+                            <List>
+                                <ListItem button sx={{ pl: 16 }} onClick={_=>navigate("/bikcoin/trace")}>
+                                    <ListItemIcon>
+                                        <PolicyIcon/>
+                                    </ListItemIcon>
+                                    <ListItemText primary={"By Id"} />
+                                </ListItem>
+                                <ListItem button sx={{ pl: 16 }} onClick={_=>navigate("/bikcoin/tracebyserial")}>
+                                    <ListItemIcon>
+                                        <PolicyIcon/>
+                                    </ListItemIcon>
+                                    <ListItemText primary={"By Serial"} />
+                                </ListItem>
+                            </List>
+                        </Collapse>
+                        <ListItem button sx={{ pl: 8 }} onClick={_=>navigate("/bikcoin/list")}>
                             <ListItemIcon>
                                 <ExtensionIcon/>
                             </ListItemIcon>
@@ -127,7 +133,7 @@ export default function Layout(props){
                         </ListItem>
                     </List>
                 </React.Fragment>
-            }
+            </Collapse>
 
         </div>
     );

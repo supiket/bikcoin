@@ -14,7 +14,7 @@ function App() {
   return (
       <React.Fragment>
         <Routes>
-            <Route path={"/"} element={<Layout/>}>
+            <Route path={"/bikcoin"} element={<Layout/>}>
                 <Route path={"queryverified"} element={<QueryVerified/>}/>
                 <Route path={"verify"} element={<Verify/>}/>
                 <Route path={"mint"} element={<Mint/>}/>
