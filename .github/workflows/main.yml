@@ -9,6 +9,8 @@ jobs:
     strategy:
       matrix:
         node-version: [ 12.x]
+    env:
+      GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
     steps:
     - uses: actions/checkout@v1
     - name: Use Node.js ${{ matrix.node-version }}
@@ -21,7 +23,8 @@ jobs:
       run: |
         git config --global user.email "bengisuozaydin@gmail.com"
         git config --global user.name "supiket"
-        git remote set-url origin https://${{ secrets.GITHUB_TOKEN }}@github.com/supiket/bikcoin.git
-        npm run deploy
-    - name: Updating Domain
-      run: echo "Update domain"
+        npm run predeploy
+    - name: Deploying
+      uses: crazy-max/ghaction-github-pages@v2.6.0
+      with:
+        build_dir: build

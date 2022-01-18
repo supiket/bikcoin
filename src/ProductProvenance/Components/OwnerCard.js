@@ -8,7 +8,8 @@ import PersonIcon from '@mui/icons-material/Person';
 import {useContractCall} from "@usedapp/core";
 import {productProvenanceAbi, productProvenanceAddress} from "../../Contracts/contracts";
 import {utils} from "ethers";
-
+import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
+import Box from "@mui/material/Box";
 
 const productProvenanceInterface = new utils.Interface(productProvenanceAbi)
 
@@ -27,23 +28,36 @@ export default function OwnerCard(props){
         setUser({address})
         setLoading(false)
     }, [address])
-    return loading?(
-        <Card sx={{ minWidth: 275,  marginTop: 15}}>
-            <CardContent>
-                <Skeleton variant="text" />
-                <Skeleton variant="text" />
-            </CardContent>
-        </Card>
-    ):(
-        <Card sx={{ marginTop:1, background: "#FFF6" }}>
-            <CardHeader
-                avatar={
-                    <Avatar >
-                        <PersonIcon/>
-                    </Avatar>
-                }
-                title={user.address +" " }
-            />
-        </Card>
-    )
+    return <React.Fragment>{
+            loading? (
+                <Card sx={{minWidth: 275, marginTop: 15}}>
+                    <CardContent>
+                        <Skeleton variant="text"/>
+                        <Skeleton variant="text"/>
+                    </CardContent>
+                </Card>
+            ) : (
+                    <Card sx={{marginTop: 3, marginBottom:3, background: "#FFF6"}}>
+                        <CardHeader
+                            avatar={
+                                <Avatar>
+                                    <PersonIcon/>
+                                </Avatar>
+                            }
+                            title={user.address + " "}
+                        />
+                    </Card>
+                )
+        }
+        <Box
+            sx={{
+                m: 0,
+                textAlign:"center",
+            }}
+            className={"ok"}
+            fullWidth
+        >
+            <ArrowDownwardIcon fontSize={"large"}/>
+        </Box>
+    </React.Fragment>
 }
